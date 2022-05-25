@@ -153,7 +153,7 @@ class LCD:
       for i in range(self.LCD_WIDTH):
          self.lcd_byte(ord(message[i]),self.LCD_CHR)
          
-    def lcd_cursor(self, row, col)
+   def lcd_cursor(self, row, col):
         if row == 0:
             col |= 0x80
         elif row == 1:
@@ -351,15 +351,19 @@ def main():
    
    motor_radial = StepperMotor(1)
    motor_theta = StepperMotor(2)
-
+   
+   motor_radial.setVelocity(3000,5000)
+   motor_theta.setVelocity(3000,5000)
+   
+   radius = 0  # This should correspond to where the robot starts
+   theta = 0   # This should correspond to where the robot starts
    while True:
-      radius = 0  # This should correspond to where the robot starts
-      theta = 0   # This should correspond to where the robot starts
-      THETA_SCALAR = 100
-      RADIUS_SCALAR = 100
 
-      radius += int((stick.readX()-2048) / 4096 * THETA_SCALAR)
-      theta += int((stick.readY()-2048) / 4096 * RADIUS_SCALAR)
+      THETA_SCALAR = 50 
+      RADIUS_SCALAR = 50
+
+      radius = radius + int((stick.readY()-2048) / 4096 * THETA_SCALAR)
+      theta = theta + int((stick.readX()-2048) / 4096 * RADIUS_SCALAR)
       
       line1 = "Theta: " + str(theta)
       line2 = "Radius: " + str(radius)
