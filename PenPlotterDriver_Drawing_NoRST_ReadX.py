@@ -340,22 +340,28 @@ class StepperMotor:
       print ("PMUL: ", pmul, "PDIV: ", pdiv)
       return pmul, pdiv
 
-   def goToPosition(self, position):
+   def sendPosition(self, position):
       targetValue = self.convertIntToBytes(position)
       target = bytearray([self.XTARGET_ADDR,
                            targetValue[0],
                            targetValue[1],
                            targetValue[2]])
       self.sendByteSet(target)
-      
+    
+   def readPosition(self):
       result = bytearray([0b00000011,
                            0,
                            0,
                            0])
       currentPosition = self.sendByteSet(result)
       answer = self.convertBytesToInt(currentPosition)
-      print(answer)
       return answer
+    
+   def travelToPosition(self, position):
+       self.sendPosition(position)
+       currentPosition = self.readPosition()
+       # Return True if motor made it to the target position, False otherwise.
+       return currentPosition == position
 
    def convertIntToBytes(self, value):
       first = value & 0xFF
@@ -400,8 +406,8 @@ def main():
       display.lcd_string(line2, display.LCD_LINE_2)
 
 
-      motor_radial.goToPosition(100)
-#       motor_theta.goToPosition(-100)
+      print(motor_radial.travelToPosition(100))
+#       motor_theta.sendPosition(-100)
 
       # If the joystick button is pressed, turn the light on and toggle the pen up/down.
       if (stick.readSwitch()):
