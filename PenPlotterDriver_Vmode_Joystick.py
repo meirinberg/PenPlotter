@@ -379,6 +379,7 @@ class StepperMotor:
                                   0b00000000])
       self.sendByteSet(xActualByteSet)
 
+
 def main():
     
    # Initialize objects from each class.
@@ -408,9 +409,17 @@ def main():
 
       radial_speed = stick.readY()-2048
       theta_speed = stick.readX()-2048
-
-      targetY = motor_radial.convertIntToBytes(radial_speed)
-      targetX = motor_theta.convertIntToBytes(theta_speed)
+      
+      if abs(radial_speed) > 200:
+          targetY = motor_radial.convertIntToBytes(radial_speed)    
+      else:
+          targetY = motor_radial.convertIntToBytes(0)
+      
+      if abs(theta_speed) > 200:
+          targetX = motor_theta.convertIntToBytes(theta_speed)   
+      else:
+          targetX = motor_theta.convertIntToBytes(0)
+      
 
       radialTargetByteSet = bytearray([motor_radial.VTARGET_ADDR, 
                                   targetY[0],
@@ -426,8 +435,7 @@ def main():
       line2 = "Radius: " + str(theta_speed)
       display.lcd_string(line1, display.LCD_LINE_1)
       display.lcd_string(line2, display.LCD_LINE_2)
-
-
+      
       motor_radial.sendByteSet(radialTargetByteSet)
       motor_theta.sendByteSet(thetaTargetByteSet)
       #print(motor_radial.readPosition())
