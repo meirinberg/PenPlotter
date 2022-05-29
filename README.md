@@ -2,13 +2,24 @@
 ME 405 - Term Project: 2D Pen Plotter. Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
 
 ## Project Background
-< why this project? basic me 405 info >
+
+In ME 405 we were tasked with creating a 2.5 degree of freedom non cartesian pen plotter with the following rules:
+
+1. The project must be able to draw something
+2. The device must move in two different degrees of freedom (non Cartesian)
+3. Must use stepper motors for 2 axis'
+4. Must run off of 24V benchtop power supplies drawing no more than 6A
+5. Must be safe (generally no lasers, fire, or hazarderous systems)
 
 ## Proposal
 
-< what is our group trying to do. What is our design. How does it work. >
+We decided to create a polar-based pen plotter that utalizes 2 stepper motors, for our radius and theta axis, and a solenoid to control our pen's vertical movement. This was to be done in a system that had a mount, an arm, and a wheel. The arm would have a lead screw that controls our radius and the wheel controls our theta. An imagine of the system is shown below.
 
-## Video Demo
+![image of system](images/image_of_system.png)
+
+A video of our working system is shown below.
+
+[Video demo of our system](youtube.com)
 
 ## Components
 
