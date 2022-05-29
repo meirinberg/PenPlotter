@@ -23,7 +23,45 @@ A video of our working system is shown below.
 
 ## Components
 
-< pictures and brief description of what they do >
+![theta stepper](images/theta_stepper.png)
+
+This stepper motor controls our theta axis
+
+![radius stepper](images/radius_stepper.png)
+
+This stepper motor controls our radius axis
+
+![solenoid](images/solenoid.png)
+
+Our solenoid makes our pen move up and down
+
+![physical board](images/physical_board.png)
+
+Our board is the surface our program draws on. It is made out of wood.
+
+![lead screw](images/lead_screw.png)
+
+Our lead screw moves < 2mm I think? > mm per lead. Used for slow but accurate movements.
+
+![microcontroller](images/microcontroller.png)
+
+We used the stm32 as our microcontroller. The Microcontroller has < x ram > and < x storage >. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project.
+
+![shoe of brian](images/shoe_of_brian.png) 
+
+The shoe of brian is neccessary as an adaptor to utalize micropython for our project. This is due to limittation present on our stm32 hardware. 
+
+![power board](images/power_board.png)
+
+Used for tmc2208s and tmc4210s, which control our stepper motors in this project. Contains all of our power connections except for the solonoid due to hardware limitations. 
+
+![LCD](images/LCD.png)
+
+Used to show the user real time location info of where our pen is.
+
+![Joystick](images/joystick.png)
+
+Used for user controlled movement. Utalizes velocity mode as in practice it is easier to draw by hand with.
 
 ## CAD
 
