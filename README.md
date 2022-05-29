@@ -28,11 +28,15 @@ ME 405 - Term Project: 2D Pen Plotter. Created by Mike Eirinberg, Ben Bradley, a
 
 < High level overview >
 
-### Newton Ralphson
+## Newton Ralphson
 
 < Background >
 
-## System Hardware
+## Component Walkthrough
+
+### Microcontroller
+
+< peripherals clocks settings etc (basically our init) >
 
 ### Stepper Motors
 
@@ -53,27 +57,3 @@ ME 405 - Term Project: 2D Pen Plotter. Created by Mike Eirinberg, Ben Bradley, a
 ### Joystick
 
 < level 2 diagram (detailed system) >
-
-## System Software
-
-< Overview of tasks involved in system ?
-
-### FSM
-
-< what is our FSM and why >
-
-### Stepper Motors
-
-< design choices (if any) maybe some code but don't need to walk through it all if it's commented >
-
-### Solenoid
-
-< design choices (if any) maybe some code but don't need to walk through it all if it's commented >
-
-### LCD
-
-< design choices (if any) maybe some code but don't need to walk through it all if it's commented >
-
-### Joystick
-
-< design choices (if any) maybe some code but don't need to walk through it all if it's commented >
