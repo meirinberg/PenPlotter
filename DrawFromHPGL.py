@@ -234,9 +234,10 @@ class StepperMotor:
    
    #accelerationValue = 0b00000001
 
-   def __init__(self, chipSelect, acceleration, vMin, vMax):
+   def __init__(self, chipSelect, acceleration, vMin, vMax, vMode):
       # Polarity = 1, Phase = 1
       # Pin Set-Up
+      self.vMode = vMode
       self.accelerationValue = acceleration
       self.vMin = vMin
       self.vMax = vMax
@@ -308,19 +309,35 @@ class StepperMotor:
       limitswitches = bytearray([self.LIMIT_SWITCHES_ADDR, 
                                  0b00000000,
                                  0b00000011,
-                                 0b00010000]) 
+                                 0b00010000])
+      
+      readModeByteSet = bytearray([0b01110011,
+                                    0b00000000,
+                                    0b00000000,
+                                    0b00000000])
        
       # Send the byte sets:
       #Motor.sendByteSet(testByteSet)
-      self.sendByteSet(enableByteSet)
-      self.setVelocity(self.vMin,self.vMax)
-      self.sendByteSet(pulseAndRampDivByteSet)
-      self.sendByteSet(aMaxByteSet)
-      self.sendByteSet(calculated_Pdiv)
-      self.sendByteSet(vrampModeByteSet)
-      self.sendByteSet(vTargetByteSet)
-      self.sendByteSet(xrampModeByteSet)
-      self.setXActualToZero()
+      
+      if vMode:
+         self.sendByteSet(enableByteSet)
+         self.setVelocity(1000,1023)
+         self.sendByteSet(pulseAndRampDivByteSet)
+         self.sendByteSet(aMaxByteSet)
+         self.sendByteSet(calculated_Pdiv)
+         self.sendByteSet(vrampModeByteSet)
+         self.sendByteSet(vTargetByteSet)
+         print(self.sendByteSet(readModeByteSet))
+      else:
+         self.sendByteSet(enableByteSet)
+         self.setVelocity(self.vMin,self.vMax)
+         self.sendByteSet(pulseAndRampDivByteSet)
+         self.sendByteSet(aMaxByteSet)
+         self.sendByteSet(calculated_Pdiv)
+         self.sendByteSet(vrampModeByteSet)
+         self.sendByteSet(vTargetByteSet)
+         self.sendByteSet(xrampModeByteSet)
+         self.setXActualToZero()
 
    def convertIntToBytes(self,value):
       firstByte = value & 0xFF
@@ -435,8 +452,22 @@ def main():
    #stick = Joystick()
    display = LCD()
    
-   motor_radial = StepperMotor(1, 0b00001000, 2000, 2023)
-   motor_theta = StepperMotor(2, 0b00000001, 1000, 1023)
+   motor_radial = StepperMotor(1, 0b00010000, 1000, 1023, False)
+   motor_theta = StepperMotor(2, 0b00000001, 1000, 1023, False)
+   
+   radial_speed = 2000
+      
+
+   targetY = motor_radial.convertIntToBytes(radial_speed)    
+      
+
+   radialTargetByteSet = bytearray([motor_radial.VTARGET_ADDR, 
+                                  targetY[0],
+                                  targetY[1],
+                                  targetY[2]])
+      
+      
+   #motor_radial.sendByteSet(radialTargetByteSet)
    
 #    motor_radial.setVelocity(3000,5000)
 #    motor_theta.setVelocity(3000,5000)
@@ -450,8 +481,8 @@ def main():
    commands = []
    filename = "triangle.hpgl"
    
-   if (motor_radial.travelToPosition(0)) and (motor_theta.travelToPosition(0)):
-       pass
+#    if (motor_radial.travelToPosition(0)) and (motor_theta.travelToPosition(0)):
+#        pass
 
    if filename:
       with open(filename) as f:
@@ -551,7 +582,7 @@ def main():
       f2 = temp[1]*math.sin(temp[0])/alpha
       guess=theta
       value1 = (temp[0])*motor_theta.NEMA_FULL_ROTATION / (2*math.pi)
-      value2 = (temp[1])*motor_radial.OTHER_FULL_ROTATION / (2*math.pi)
+      value2 = (temp[1])*motor_radial.OTHER_FULL_ROTATION*100 / (2*math.pi)
       line1 = "Theta: " + str(value1)
       line2 = "Radius: " + str(value2)
       
