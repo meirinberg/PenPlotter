@@ -71,7 +71,7 @@ Used for user controlled movement. Utalizes velocity mode as in practice it is e
 
 ## Driver Design
 
-< high level overview >
+We utalized a cooporate multiasking class driver that utalizes tasks and queues. We did this so priority tasks would not have to wait for lessor priority tasks.
 
 ## Kinematics
 
