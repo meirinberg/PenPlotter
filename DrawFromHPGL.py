@@ -25,21 +25,22 @@ def interp(xpoint,ypoint,num):
     iy = np.linspace(ypoint[0],ypoint[1],num)
     return ix, iy
 
+
 def g(x, theta):
     # Computes difference between expected and calculated pen plotter angular position
     #print("Theta",theta)
-    f1 = theta[1]*math.cos(math.radians(theta[0]))/alpha
-    f2 = theta[1]*math.sin(math.radians(theta[0]))/alpha
+    f1 = theta[1]*math.cos(theta[0])
+    f2 = theta[1]*math.sin(theta[0])
     #print("X",x)
     Theta = np.array([f1,f2])
     return x-Theta
     
 def dg_dtheta(theta):
     # Computes Jacobian matrix for inverse kinematics
-    df1dt1 = -theta[1]*math.sin(math.radians(theta[0]))/alpha
-    df1dt2 = math.cos(math.radians(theta[0]))/alpha
-    df2dt1 = theta[1]*math.cos(math.radians(theta[0]))/alpha
-    df2dt2 = math.sin(math.radians(theta[0]))/alpha
+    df1dt1 = -theta[1]*math.sin(theta[0])# /alpha
+    df1dt2 = math.cos(theta[0])# /alpha
+    df2dt1 = theta[1]*math.cos(theta[0])# /alpha
+    df2dt2 = math.sin(theta[0])# /alpha
     jacob = np.array([[-1*df1dt1, -1*df1dt2],[-1*df2dt1,-1*df2dt2]])
     return jacob
 
@@ -231,11 +232,14 @@ class StepperMotor:
    VTARGET_ADDR =          0b00001000
    LIMIT_SWITCHES_ADDR =   0b00010100
    
-   accelerationValue = 0b00000001
+   #accelerationValue = 0b00000001
 
-   def __init__(self, chipSelect):
+   def __init__(self, chipSelect, acceleration, vMin, vMax):
       # Polarity = 1, Phase = 1
       # Pin Set-Up
+      self.accelerationValue = acceleration
+      self.vMin = vMin
+      self.vMax = vMax
       self.chipSelect = chipSelect
       self.PC6 = Pin("C6", mode = Pin.OUT_PP)
       self.tim = pyb.Timer(3, period = 3, prescaler = 0)
@@ -309,7 +313,7 @@ class StepperMotor:
       # Send the byte sets:
       #Motor.sendByteSet(testByteSet)
       self.sendByteSet(enableByteSet)
-      self.setVelocity(1000,1023)
+      self.setVelocity(self.vMin,self.vMax)
       self.sendByteSet(pulseAndRampDivByteSet)
       self.sendByteSet(aMaxByteSet)
       self.sendByteSet(calculated_Pdiv)
@@ -431,11 +435,11 @@ def main():
    #stick = Joystick()
    display = LCD()
    
-   motor_radial = StepperMotor(1)
-   motor_theta = StepperMotor(2)
+   motor_radial = StepperMotor(1, 0b00001000, 2000, 2023)
+   motor_theta = StepperMotor(2, 0b00000001, 1000, 1023)
    
-   motor_radial.setVelocity(3000,5000)
-   motor_theta.setVelocity(3000,5000)
+#    motor_radial.setVelocity(3000,5000)
+#    motor_theta.setVelocity(3000,5000)
    
    radius = 0  # This should correspond to where the robot starts
    theta = 0   # This should correspond to where the robot starts
@@ -530,17 +534,17 @@ def main():
    datay = Yprocess
    x = [1,0]
    theta = [0.1, 0.1]
-   guess = [math.atan(datay[2]/datax[2]),math.sqrt(datax[2]**2 + datay[2]**2)]
+   guess = [math.atan(datay[0]/datax[0]),math.sqrt(datax[0]**2 + datay[0]**2)]
    count = []
    print("Number of points: ", len(datax))
    for t in range(len(datax)):
         # Calculates angular position output using Newton Raphson function for each
         # theoretical data point.
-      print(t)
+      #print(t)
       X = [datax[t],datay[t]]
       
       temp = NewtonRaphson(lambda theta: g(X, theta), dg_dtheta, guess, .01)
-      temp[0] = abs(temp[0]%(math.pi/2))
+      temp[0] = abs(temp[0]%(math.pi))
       temp[1] = abs(temp[1])
         
       f1 = temp[1]*math.cos(temp[0])/alpha
@@ -550,12 +554,19 @@ def main():
       value2 = (temp[1])*motor_radial.OTHER_FULL_ROTATION / (2*math.pi)
       line1 = "Theta: " + str(value1)
       line2 = "Radius: " + str(value2)
+      
+      print(str(temp[0]),", ", str(temp[1]))
       display.lcd_string(line1, display.LCD_LINE_1)
       display.lcd_string(line2, display.LCD_LINE_2)
 
       pen.down()
-      while not ((motor_radial.travelToPosition(int(value2)) and (motor_theta.travelToPosition(int(value1))))):
-         pass
+      nextPoint = False
+      #while not ((motor_radial.travelToPosition(int(value2)) and (motor_theta.travelToPosition(int(value1))))):
+      while nextPoint == False:
+         bool1 = motor_theta.travelToPosition(int(value1))
+         bool2 = motor_radial.travelToPosition(int(value2))
+         if bool1 and bool2:
+             nextPoint = True
 #       line1 = "Processing Data:"
 #       line2 = "Point " + str(t) + " of " + str(len(datax))
 #       display.lcd_string(line1, display.LCD_LINE_1)
