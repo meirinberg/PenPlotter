@@ -79,7 +79,7 @@ We utalized a cooporate multiasking class driver that utalizes tasks and queues.
 
 ## Newton Ralphson
 
-< Background >
+Newton Ralphson is a method to find roots to a mechanical system. We used the [Kinematics](##Kinematics) to derive our equations for the radius and theta of our system. We then took the derivative of our main function and used a method of successive approximation to come up with a solution within a specified threshold. This solution is graphed and showed visually below.
 
 ## Component Walkthrough
 
