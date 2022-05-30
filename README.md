@@ -35,7 +35,7 @@ Our solenoid makes our pen move up and down
 
 Our board is the surface our program draws on. It is made out of wood.
 
-![lead screw](images/Lead_Screw.png)
+<img id="lead screw" src="images/Lead_Screw.png" class="rotate90">
 
 Our lead screw moves < 2mm I think? > mm per lead. Used for slow but accurate movements.
 
