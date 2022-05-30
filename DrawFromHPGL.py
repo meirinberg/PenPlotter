@@ -364,8 +364,8 @@ class StepperMotor:
    def setVelocity(self, vmin, vmax):
       temp1 = self.convertIntToBytes(vmin)
       temp2 = self.convertIntToBytes(vmax)
-      vminByteSet = bytearray([self.VMIN_ADDR,temp1[2],temp1[1],temp1[0]])
-      vmaxByteSet = bytearray([self.VMAX_ADDR,temp2[2],temp2[1],temp2[0]]) 
+      vminByteSet = bytearray([self.VMIN_ADDR,temp1[0],temp1[1],temp1[2]])
+      vmaxByteSet = bytearray([self.VMAX_ADDR,temp2[0],temp2[1],temp2[2]]) 
       self.sendByteSet(vminByteSet)
       self.sendByteSet(vmaxByteSet)
         
@@ -452,19 +452,19 @@ def main():
    #stick = Joystick()
    display = LCD()
    
-   motor_radial = StepperMotor(1, 0b00010000, 1000, 1023, False)
+   motor_radial = StepperMotor(1, 0b00010000, 1023, 1023, False)
    motor_theta = StepperMotor(2, 0b00000001, 1000, 1023, False)
    
-   radial_speed = 2000
-      
-
-   targetY = motor_radial.convertIntToBytes(radial_speed)    
-      
-
-   radialTargetByteSet = bytearray([motor_radial.VTARGET_ADDR, 
-                                  targetY[0],
-                                  targetY[1],
-                                  targetY[2]])
+#    radial_speed = 2000
+#       
+# 
+#    targetY = motor_radial.convertIntToBytes(radial_speed)    
+#       
+# 
+#    radialTargetByteSet = bytearray([motor_radial.VTARGET_ADDR, 
+#                                   targetY[0],
+#                                   targetY[1],
+#                                   targetY[2]])
       
       
    #motor_radial.sendByteSet(radialTargetByteSet)
@@ -479,7 +479,7 @@ def main():
    # Get filename from the command-line arguments.
    args = []
    commands = []
-   filename = "triangle.hpgl"
+   filename = "square.hpgl"
    
 #    if (motor_radial.travelToPosition(0)) and (motor_theta.travelToPosition(0)):
 #        pass
@@ -567,13 +567,14 @@ def main():
    theta = [0.1, 0.1]
    guess = [math.atan(datay[0]/datax[0]),math.sqrt(datax[0]**2 + datay[0]**2)]
    count = []
+   resultx = []
+   resulty = []
    print("Number of points: ", len(datax))
    for t in range(len(datax)):
         # Calculates angular position output using Newton Raphson function for each
         # theoretical data point.
       #print(t)
       X = [datax[t],datay[t]]
-      
       temp = NewtonRaphson(lambda theta: g(X, theta), dg_dtheta, guess, .01)
       temp[0] = abs(temp[0]%(math.pi))
       temp[1] = abs(temp[1])
@@ -583,21 +584,17 @@ def main():
       guess=theta
       value1 = (temp[0])*motor_theta.NEMA_FULL_ROTATION / (2*math.pi)
       value2 = (temp[1])*motor_radial.OTHER_FULL_ROTATION*100 / (2*math.pi)
-      line1 = "Theta: " + str(value1)
-      line2 = "Radius: " + str(value2)
+
       
       print(str(temp[0]),", ", str(temp[1]))
-      display.lcd_string(line1, display.LCD_LINE_1)
-      display.lcd_string(line2, display.LCD_LINE_2)
+
 
       pen.down()
+      
       nextPoint = False
+      resultx.append(int(value1))
+      resulty.append(int(value2))
       #while not ((motor_radial.travelToPosition(int(value2)) and (motor_theta.travelToPosition(int(value1))))):
-      while nextPoint == False:
-         bool1 = motor_theta.travelToPosition(int(value1))
-         bool2 = motor_radial.travelToPosition(int(value2))
-         if bool1 and bool2:
-             nextPoint = True
 #       line1 = "Processing Data:"
 #       line2 = "Point " + str(t) + " of " + str(len(datax))
 #       display.lcd_string(line1, display.LCD_LINE_1)
@@ -618,6 +615,16 @@ def main():
 #             pen.up()
 #       else:
 #          light.off()
+   while i < len(resultx):
+      bool1 = motor_theta.travelToPosition(resultx[i])
+      bool2 = motor_radial.travelToPosition(resulty[i])
+        
+      line1 = "Theta: " + str(resultx[i])
+      line2 = "Radius: " + str(resulty[i])
+      display.lcd_string(line1, display.LCD_LINE_1)
+      display.lcd_string(line2, display.LCD_LINE_2)
+      if (bool1 and bool2):
+         i += 1
 
 
 if __name__ == "__main__":
