@@ -23,15 +23,11 @@ A video of our working system is shown below.
 
 ## Components
 
-![theta stepper](images/theta_stepper.png)
+![stepper motors](images/Motors.png)
 
-This stepper motor controls our theta axis
+Our theta stepper motor controls our angle and our radius stepper motor controls how far out the pen is from the pivot.
 
-![radius stepper](images/radius_stepper.png)
-
-This stepper motor controls our radius axis
-
-![solenoid](images/solenoid.png)
+![solenoid](images/Solenoid.png)
 
 Our solenoid makes our pen move up and down
 
@@ -39,19 +35,19 @@ Our solenoid makes our pen move up and down
 
 Our board is the surface our program draws on. It is made out of wood.
 
-![lead screw](images/lead_screw.png)
+![lead screw](images/Lead_Screw.png)
 
 Our lead screw moves < 2mm I think? > mm per lead. Used for slow but accurate movements.
 
-![microcontroller](images/microcontroller.png)
+![microcontroller](images/STM32.png)
 
-We used the stm32 as our microcontroller. The Microcontroller has < x ram > and < x storage >. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project.
+We used the STM32 as our microcontroller. The Microcontroller has < x ram > and < x storage >. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project.
 
 ![shoe of brian](images/shoe_of_brian.png) 
 
 The shoe of brian is neccessary as an adaptor to utalize micropython for our project. This is due to limittation present on our stm32 hardware. 
 
-![power board](images/power_board.png)
+![power board](images/Power_Board.png)
 
 Used for tmc2208s and tmc4210s, which control our stepper motors in this project. Contains all of our power connections except for the solonoid due to hardware limitations. 
 
@@ -59,7 +55,7 @@ Used for tmc2208s and tmc4210s, which control our stepper motors in this project
 
 Used to show the user real time location info of where our pen is.
 
-![Joystick](images/joystick.png)
+![Joystick](images/Joy_Stick.png)
 
 Used for user controlled movement. Utalizes velocity mode as in practice it is easier to draw by hand with.
 
