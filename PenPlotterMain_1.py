@@ -731,9 +731,12 @@ def main():
               pen.down()
       
               nextPoint = False
-              resultx.append(int(value1))
-              resulty.append(int(value2))
-              #while not ((motor_radial.travelToPosition(int(value2)) and (motor_theta.travelToPosition(int(value1))))):
+              
+              datax[t] = int(value1)
+              datay[t] = int(value2)
+#               resultx.append(int(value1))
+#               resulty.append(int(value2))
+               #while not ((motor_radial.travelToPosition(int(value2)) and (motor_theta.travelToPosition(int(value1))))):
         #       line1 = "Processing Data:"
         #       line2 = "Point " + str(t) + " of " + str(len(datax))
         #       display.lcd_string(line1, display.LCD_LINE_1)
@@ -754,12 +757,12 @@ def main():
         #             pen.up()
         #       else:
         #          light.off()
-           while i < len(resultx):
-              bool1 = motor_theta.travelToPosition(resultx[i])
-              bool2 = motor_radial.travelToPosition(resulty[i])
+           while i < len(datax):
+              bool1 = motor_theta.travelToPosition(datax[i])
+              bool2 = motor_radial.travelToPosition(datay[i])
         
-              line1 = "Theta: " + str(resultx[i])
-              line2 = "Radius: " + str(resulty[i])
+              line1 = "Theta: " + str(datax[i])
+              line2 = "Radius: " + str(datay[i])
               display.lcd_string(line1, display.LCD_LINE_1)
               display.lcd_string(line2, display.LCD_LINE_2)
               
@@ -777,7 +780,16 @@ def main():
               
               if (bool1 and bool2):
                  i += 1
-
+           light.on()
+           line1 = "Print Cancelled"
+           line2 = ""
+           display.lcd_string(line1, display.LCD_LINE_1)
+           display.lcd_string(line2, display.LCD_LINE_2)
+           UIMode = True
+           motor_theta.travelToPosition(0)
+           motor_radial.travelToPosition(0)
+           main()
+           light.off()
 
 if __name__ == "__main__":
     main()
