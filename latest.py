@@ -473,6 +473,7 @@ def main():
       line1 = filenames[i]
       line2 = filenames[i+1]
       while UIMode:
+         print(i)
          if (stick.readX() > 3048) and i < len(filenames)-1 and i >= 0:
             print("DOWN")
             i+=1
@@ -486,11 +487,13 @@ def main():
                line2 = filenames[i+1]
             else:
                line2 = ""
-         elif i <= len(filenames)-1 and not i == 1:
+         elif i <= len(filenames)-1 and not (i % 2 == 1):
+            print("HERE")
             if (i+1) < len(filenames):
+               print("HERE2")
                line1 = filenames[i]
                line2 = filenames[i+1]
-         elif i == 1:
+         elif (i % 2 == 1):
             line1 = filenames[i-1]
             line2 = filenames[i]
             
