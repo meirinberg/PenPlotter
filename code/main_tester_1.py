@@ -27,7 +27,7 @@ def File_Draw():
     """
     Reads loaded drawing data and converts to usable form
     """
-    motor_radial = StepperMotor(1, 0b00001000, 1000, 1500, False)
+    motor_radial = StepperMotor(1, 0b00010000, 1000, 1500, False)
     motor_radial.setXActualToZero()
     motor_theta = StepperMotor(2, 0b00000001, 1000, 1023, False)
     motor_theta.setXActualToZero()
@@ -110,19 +110,85 @@ def Free_Draw():
     """
     Runs Stepper Motors in Free Draw Mode
     """
+    motor_radial = StepperMotor(1, 0b00010000, 1000, 1023, True)
+    motor_theta = StepperMotor(2, 0b00000001, 1000, 1023, True)
+    
     while True:
         # Show everything currently in the queue and the value in the share
-        if state.get() == 1:
-            pass
-        yield None
-        
-def Run():
-    """!
-    Runs Stepper Motors from Drawn File
-    """
-    while True:
+        if state.get() == 4:
             
-        yield None
+
+           #motor_radial.setVelocity(3000,5000)
+           #motor_theta.setVelocity(3000,5000)
+   
+           # radius = 0  # This should correspond to where the robot starts
+           # theta = 0   # This should correspond to where the robot starts
+           
+            #       THETA_SCALAR = 35 
+            #       RADIUS_SCALAR = 35
+            # 
+            #       radius = radius + int((stick.readY()-2048) / 4096 * THETA_SCALAR)
+            #       theta = theta + int((stick.readX()-2048) / 4096 * RADIUS_SCALAR)
+
+
+           theta_speed = 1000
+           radial_speed = 1000
+#            theta_speed = -1*(stick.readY()-2048)
+#            radial_speed = -1*(stick.readX()-2048)
+  
+           if abs(radial_speed) > 200:
+               targetY = motor_radial.convertIntToBytes(radial_speed)
+               #print('TargetY',targetY)
+           else:
+               #radial_speed = 0
+               targetY = motor_radial.convertIntToBytes(0)
+  
+           if abs(theta_speed) > 200:
+               targetX = motor_theta.convertIntToBytes(theta_speed)
+
+           else:
+               #theta_speed = 0
+               targetX = motor_theta.convertIntToBytes(0)
+  
+
+           radialTargetByteSet = bytearray([motor_radial.VTARGET_ADDR, 
+                              targetY[0],
+                              targetY[1],
+                              targetY[2]])
+  
+           thetaTargetByteSet = bytearray([motor_theta.VTARGET_ADDR, 
+                              targetX[0],
+                              targetX[1],
+                              targetX[2]]) 
+  
+           line1 = "Theta: " + str(theta_speed)
+           line2 = "Radius: " + str(radial_speed)
+           display.lcd_string(line1, display.LCD_LINE_1)
+           display.lcd_string(line2, display.LCD_LINE_2)
+  
+           motor_radial.sendByteSet(radialTargetByteSet)
+           print('Radial Target',radialTargetByteSet)
+           print('Radial Position', motor_radial.readPosition())
+           motor_theta.sendByteSet(thetaTargetByteSet)
+           #print('Theta Target',thetaTargetByteSet)
+           #print('Theta', motor_theta.readPosition())
+           # print("Here")
+           #print(motor_radial.readPosition())
+    #       print(motor_radial.travelToPosition(radius))
+    #       print(motor_theta.travelToPosition(theta))
+
+           # If the joystick button is pressed, turn the light on and toggle the pen up/down.
+           if (stick.readSwitch()):
+               light.on()
+               if pen.getValue():
+                   pen.down()
+               else:
+                   pen.up()
+           else:
+               light.off()
+        else:
+            yield None
+
 
 def Calc_HPGL():
     
@@ -329,19 +395,20 @@ if __name__ == "__main__":
     File_Draw = cotask.Task (File_Draw, name = 'File_Draw', priority = 1, 
                          period = 100, profile = True, trace = False)
     Free_Draw = cotask.Task (Free_Draw, name = 'Free_Draw', priority = 2, 
-                         period = 1000, profile = True, trace = False)
-    Calc_HPGL = cotask.Task (Calc_HPGL, name = 'Calc_HPGL', priority = 2, 
-                         period = 1000, profile = True, trace = False)
-    UI = cotask.Task (UI, name = 'UI', priority = 3, 
                          period = 100, profile = True, trace = False)
-    Run = cotask.Task (Run, name = 'Run', priority = 2, 
+    Calc_HPGL = cotask.Task (Calc_HPGL, name = 'Calc_HPGL', priority = 3, 
                          period = 1000, profile = True, trace = False)
+    UI = cotask.Task (UI, name = 'UI', priority = 4, 
+                         period = 100, profile = True, trace = False)
+#     Run = cotask.Task (Run, name = 'Run', priority = 2, 
+#                          period = 1000, profile = True, trace = False)
     
     
     
     cotask.task_list.append(UI)
     cotask.task_list.append(Calc_HPGL)
     cotask.task_list.append(File_Draw)
+    cotask.task_list.append(Free_Draw)
     
     
     # Run the memory garbage collector to ensure memory is as defragmented as
@@ -629,13 +696,14 @@ if __name__ == "__main__":
           
           if vMode:
              self.sendByteSet(enableByteSet)
-             self.setVelocity(1000,1023)
+             self.setVelocity(self.vMin,self.vMax)
              self.sendByteSet(pulseAndRampDivByteSet)
              self.sendByteSet(aMaxByteSet)
              self.sendByteSet(calculated_Pdiv)
              self.sendByteSet(vrampModeByteSet)
              self.sendByteSet(vTargetByteSet)
              print(self.sendByteSet(readModeByteSet))
+             
           else:
              self.sendByteSet(enableByteSet)
              self.setVelocity(self.vMin,self.vMax)
