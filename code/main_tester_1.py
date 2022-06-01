@@ -27,14 +27,18 @@ def File_Draw():
     """
     Reads loaded drawing data and converts to usable form
     """
+    motor_radial = StepperMotor(1, 0b00001000, 1000, 1500, False)
+    motor_radial.setXActualToZero()
+    motor_theta = StepperMotor(2, 0b00000001, 1000, 1023, False)
+    motor_theta.setXActualToZero()
+    light.on()
+    line1 = "Print Started"
+    line2 = ""
+    display.lcd_string(line1, display.LCD_LINE_1)
+    display.lcd_string(line2, display.LCD_LINE_2)
     while True:
         if state.get() == 3:                
             if mode.get() == 0:
-                motor_radial = StepperMotor(1, 0b00000010, 1000, 1023, False)
-                motor_radial.setXActualToZero()
-                motor_theta = StepperMotor(2, 0b00000001, 1000, 1023, False)
-                motor_theta.setXActualToZero()
-            
                 
                 bool1 = motor_theta.travelToPosition(datax[ii.get()],10)
                 bool2 = motor_radial.travelToPosition(datay[ii.get()],10)
@@ -43,10 +47,12 @@ def File_Draw():
                     mode.put(1)
                     ii.put(1)
             elif mode.get() == 1:
-                bool1 = motor_theta.travelToPosition(datax[ii.get()],10)
-                bool2 = motor_radial.travelToPosition(datay[ii.get()],10)
+#                 print(mode.get())
+                bool1 = motor_theta.travelToPosition(datax[ii.get()],0)
+                bool2 = motor_radial.travelToPosition(datay[ii.get()],0)
                 
                 if (stick.readSwitch()):
+                    print('Cancellation Activated')
                     state.put(0)
                     light.on()
                     line1 = "Print Cancelled"
@@ -54,10 +60,12 @@ def File_Draw():
                     display.lcd_string(line1, display.LCD_LINE_1)
                     display.lcd_string(line2, display.LCD_LINE_2)
                     UIMode = True
-                    motor_theta.travelToPosition(0,5)
-                    motor_radial.travelToPosition(0,5)
+                    motor_theta.travelToPosition(0,0)
+                    motor_radial.travelToPosition(0,0)
                 
-                elif (bool1 and bool2):
+                if (bool1 and bool2):
+                    print("Got to point")
+                    
                     ii.put(ii.get()+1)
                     #LCD commands
                     
@@ -73,8 +81,8 @@ def File_Draw():
                         display.lcd_string(line1, display.LCD_LINE_1)
                         display.lcd_string(line2, display.LCD_LINE_2)
                         UIMode = True
-                        motor_theta.travelToPosition(0)
-                        motor_radial.travelToPosition(0)
+                        motor_theta.travelToPosition(0,0)
+                        motor_radial.travelToPosition(0,0)
                         light.off()
                     else:
                         yield None
@@ -319,12 +327,12 @@ if __name__ == "__main__":
 #                            name = "HPGL Y Output")
     
     File_Draw = cotask.Task (File_Draw, name = 'File_Draw', priority = 1, 
-                         period = 400, profile = True, trace = False)
+                         period = 100, profile = True, trace = False)
     Free_Draw = cotask.Task (Free_Draw, name = 'Free_Draw', priority = 2, 
                          period = 1000, profile = True, trace = False)
     Calc_HPGL = cotask.Task (Calc_HPGL, name = 'Calc_HPGL', priority = 2, 
                          period = 1000, profile = True, trace = False)
-    UI = cotask.Task (UI, name = 'UI', priority = 2, 
+    UI = cotask.Task (UI, name = 'UI', priority = 3, 
                          period = 100, profile = True, trace = False)
     Run = cotask.Task (Run, name = 'Run', priority = 2, 
                          period = 1000, profile = True, trace = False)
@@ -727,12 +735,13 @@ if __name__ == "__main__":
        def travelToPosition(self, position,thresh):
            self.sendPosition(position)
            currentPosition = self.readPosition()
-           if abs(currentPosition - position) < thresh:
+           print("Sent:", position, "Read:", currentPosition)
+           if abs(currentPosition - position) <= thresh:
                return True
            else:
                return False
            # Return True if motor made it to the target position, False otherwise.
-           #print("Sent:", position, "Read:", currentPosition)
+           
            #time.sleep(0.5)
 #            return currentPosition == position
         
