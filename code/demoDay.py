@@ -50,7 +50,9 @@ def File_Draw():
                 bool1 = motor_theta.travelToPosition(int(datax[ii.get()]),0)
                 bool2 = motor_radial.travelToPosition(int(datay[ii.get()]),0)
                 
-                if (stick.readSwitch()):
+                if not CancelButton.value():
+                    print('Free Draw Cancelled')
+#                 if (stick.readSwitch()):
                     print('Cancellation Activated')
                     state.put(0)
                     light.on()
@@ -59,9 +61,9 @@ def File_Draw():
                     line2 = ""
                     display.lcd_string(line1, display.LCD_LINE_1)
                     display.lcd_string(line2, display.LCD_LINE_2)
-                    UIMode = True
                     motor_theta.travelToPosition(0,0)
                     motor_radial.travelToPosition(0,0)
+                
                 
                 if (bool1 and bool2):
                     p = ii.get()
@@ -136,22 +138,22 @@ def Free_Draw():
             #       theta = theta + int((stick.readX()-2048) / 4096 * RADIUS_SCALAR)
 
 
-           radial_speed = -1*(stick.readY()-2048)
-           theta_speed = -1*(stick.readX()-2048)
+           radial_speed = -1*(stick.readX()-2048)
+           theta_speed = -1*(stick.readY()-2048)
            
   
            if abs(radial_speed) > 200:
                targetY = motor_radial.convertIntToBytes(radial_speed)
                #print('TargetY',targetY)
            else:
-               #radial_speed = 0
+               radial_speed = 0
                targetY = motor_radial.convertIntToBytes(0)
   
            if abs(theta_speed) > 200:
                targetX = motor_theta.convertIntToBytes(theta_speed)
 
            else:
-               #theta_speed = 0
+               theta_speed = 0
                targetX = motor_theta.convertIntToBytes(0)
   
 
@@ -182,6 +184,19 @@ def Free_Draw():
     #       print(motor_theta.travelToPosition(theta))
 
            # If the joystick button is pressed, turn the light on and toggle the pen up/down.
+           if not CancelButton.value():
+                    print('Free Draw Cancelled')
+#                 if (stick.readSwitch()):
+                    print('Cancellation Activated')
+                    state.put(0)
+                    light.on()
+                    pen.up()
+                    line1 = "Print Cancelled"
+                    line2 = ""
+                    display.lcd_string(line1, display.LCD_LINE_1)
+                    display.lcd_string(line2, display.LCD_LINE_2)
+                    
+                    
            if (stick.readSwitch()):
                light.on()
                if pen.getValue():
@@ -789,7 +804,7 @@ if __name__ == "__main__":
              else:
                 pmul += 1
                 
-          #print ("PMUL: ", pmul, "PDIV: ", pdiv)
+          print ("PMUL: ", pmul, "PDIV: ", pdiv)
           return pmul, pdiv
     
        def sendPosition(self, position):
@@ -888,7 +903,7 @@ if __name__ == "__main__":
     display = LCD()
     
     pen.up()
-    
+    CancelButton = Pin(Pin.cpu.C13, mode=Pin.IN, pull=pyb.Pin.PULL_UP)
     while not vcp.any ():
         cotask.task_list.pri_sched ()
 
