@@ -13,7 +13,7 @@ import math
 import pyb
 from pyb import Pin, Timer, ADC, ExtInt, SPI
 import time
-from array import array
+import array
 import os
 
 global args, commands
@@ -27,7 +27,7 @@ def File_Draw():
     """
     Reads loaded drawing data and converts to usable form
     """
-    motor_radial = StepperMotor(1, 0b00010000, 1000, 1500, False)
+    motor_radial = StepperMotor(1, 0b00001000, 1000, 1500, False)
     motor_radial.setXActualToZero()
     motor_theta = StepperMotor(2, 0b00000001, 1000, 1023, False)
     motor_theta.setXActualToZero()
@@ -39,22 +39,22 @@ def File_Draw():
     while True:
         if state.get() == 3:                
             if mode.get() == 0:
-                
-                bool1 = motor_theta.travelToPosition(datax[ii.get()],10)
-                bool2 = motor_radial.travelToPosition(datay[ii.get()],10)
+                bool1 = motor_theta.travelToPosition(int(datax[ii.get()]),10)
+                bool2 = motor_radial.travelToPosition(int(datay[ii.get()]),10)
                 if (bool1 and bool2):
                     pen.down()
                     mode.put(1)
                     ii.put(1)
             elif mode.get() == 1:
 #                 print(mode.get())
-                bool1 = motor_theta.travelToPosition(datax[ii.get()],0)
-                bool2 = motor_radial.travelToPosition(datay[ii.get()],0)
+                bool1 = motor_theta.travelToPosition(int(datax[ii.get()]),0)
+                bool2 = motor_radial.travelToPosition(int(datay[ii.get()]),0)
                 
                 if (stick.readSwitch()):
                     print('Cancellation Activated')
                     state.put(0)
                     light.on()
+                    pen.up()
                     line1 = "Print Cancelled"
                     line2 = ""
                     display.lcd_string(line1, display.LCD_LINE_1)
@@ -110,8 +110,9 @@ def Free_Draw():
     """
     Runs Stepper Motors in Free Draw Mode
     """
-    motor_radial = StepperMotor(1, 0b00010000, 1000, 1023, True)
-    motor_theta = StepperMotor(2, 0b00000001, 1000, 1023, True)
+    motor_radial = StepperMotor(1, 0b00010000, 3000, 5000, True)
+    motor_theta = StepperMotor(2, 0b00000001, 3000, 5000, True)
+    
     
     while True:
         # Show everything currently in the queue and the value in the share
@@ -131,10 +132,9 @@ def Free_Draw():
             #       theta = theta + int((stick.readX()-2048) / 4096 * RADIUS_SCALAR)
 
 
-           theta_speed = 1000
-           radial_speed = 1000
-#            theta_speed = -1*(stick.readY()-2048)
-#            radial_speed = -1*(stick.readX()-2048)
+           radial_speed = -1*(stick.readY()-2048)
+           theta_speed = -1*(stick.readX()-2048)
+           
   
            if abs(radial_speed) > 200:
                targetY = motor_radial.convertIntToBytes(radial_speed)
@@ -167,8 +167,8 @@ def Free_Draw():
            display.lcd_string(line2, display.LCD_LINE_2)
   
            motor_radial.sendByteSet(radialTargetByteSet)
-           print('Radial Target',radialTargetByteSet)
-           print('Radial Position', motor_radial.readPosition())
+           # print('Radial Target',radialTargetByteSet)
+           # print('Radial Position', motor_radial.readPosition())
            motor_theta.sendByteSet(thetaTargetByteSet)
            #print('Theta Target',thetaTargetByteSet)
            #print('Theta', motor_theta.readPosition())
@@ -184,8 +184,11 @@ def Free_Draw():
                    pen.down()
                else:
                    pen.up()
+               yield None
+                   
            else:
-               light.off()
+               yield None
+               
         else:
             yield None
 
@@ -199,8 +202,9 @@ def Calc_HPGL():
     display.lcd_string(">>>>>>>>>>>>>>>>", display.LCD_LINE_2)
     global datax
     global datay
-    datax = []
-    datay = []
+    datax = array.array('d')
+    datay = array.array('d')
+    
     while True:
         
         if state.get() == 2:
@@ -249,8 +253,8 @@ def Calc_HPGL():
 #             prepy[0] = int(args[3][1])/dpi
 #             prepy[1] = int(args[5][1])/dpi
 
-            Xprocess = []
-            Yprocess = []
+            Xprocess = array.array('d')
+            Yprocess = array.array('d')
             Xprocess.append(datax[0])
             Yprocess.append(datay[0])
 
@@ -259,13 +263,13 @@ def Calc_HPGL():
                 mag = math.sqrt((datax[i]-datax[i-1])**2 + (datay[i]-datay[i-1])**2)
                 go = False
                 if mag > 2:
-                    split = 20
+                    split = 40
                     go = True
                 elif mag > 1.5:
-                    split = 15
+                    split = 30
                     go = True
                 elif mag > 0.5:
-                    split = 10
+                    split = 20
                     go = True
                 if go:
                     xadd,yadd = interp([datax[i-1],datax[i]],[datay[i-1],datay[i]],split)
@@ -289,12 +293,12 @@ def Calc_HPGL():
             for t in range(len(datax)):
                 # Calculates angular position output using Newton Raphson function for each
                 # theoretical data point.
-                X = [datax[t],datay[t]]
+                X = [Xprocess[t],datay[t]]
                 temp = NewtonRaphson(lambda theta: g(X, theta), dg_dtheta, guess, .01)
                 temp[0] = abs(temp[0]%(math.pi))
                 temp[1] = abs(temp[1])
-                datax[t] = int((temp[0])*NEMA.get() / (2*math.pi))
-                datay[t] = int((temp[1])*OTHERSTEP.get()*100 / (2*math.pi))
+                datax[t] = round((temp[0])*NEMA.get() / (2*math.pi))
+                datay[t] = round((temp[1])*OTHERSTEP.get() * 100/ (2*math.pi))
                 
                 guess=temp
                 
@@ -601,7 +605,8 @@ if __name__ == "__main__":
        VMAX_ADDR =             0b00000110
        PULSE_RAMP_ADDR =       0b00011000 
        AMAX_ADDR =             0b00001100
-       MODE_ADDR =             0b01110010
+#        MODE_ADDR =             0b01110010
+       MODE_ADDR =             0b00010100
        XACTUAL_ADDR =          0b00000010
        XTARGET_ADDR =          0b00000000
        VTARGET_ADDR =          0b00001000
@@ -877,6 +882,8 @@ if __name__ == "__main__":
     pen = Solenoid()
     stick = Joystick()
     display = LCD()
+    
+    pen.up()
     
     while not vcp.any ():
         cotask.task_list.pri_sched ()
