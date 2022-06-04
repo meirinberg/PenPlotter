@@ -7,7 +7,7 @@ In ME 405 we were tasked with creating a 2.5 degree of freedom non cartesian pen
 
 1. The project must be able to draw something
 2. The device must move in two different degrees of freedom (non Cartesian)
-3. Must use stepper motors for 2 axis'
+3. Must use stepper motors for 2 axes
 4. Must run off of 24V benchtop power supplies drawing no more than 6A
 5. Must be safe (generally no lasers, fire, or hazarderous systems)
 
