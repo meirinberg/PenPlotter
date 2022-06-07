@@ -73,10 +73,10 @@ We utalized a cooporate multiasking class driver that utalizes tasks and queues.
 
 We used the following to determine the calculations for our system (shown below). This analysis should align with any polar-based system. 
 
-![Overall System Design](images/OverallDesignDrawing.png)
-![](images/kinematicsMath1.png)
-![](images/kinematicsMath2.png)
-![](images/kinematicsMath3.png)
+![Overall System Design](images/OverallDesignDrawing.png | width=100)
+![](images/kinematicsMath1.png | width=100))
+![](images/kinematicsMath2.png | width=100))
+![](images/kinematicsMath3.png | width=100))
 
 ## Newton Ralphson
 
