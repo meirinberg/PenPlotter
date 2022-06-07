@@ -75,7 +75,7 @@ We used the following to determine the calculations for our system (shown below)
 
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OverallDesignDrawing.png" width="600">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsMath1.png" width="600">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsMath2.png" width="500">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsMath2.png" width="350">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsMath3.png" width="600">
 
 
