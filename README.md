@@ -23,8 +23,6 @@ A video of our working system is shown below.
 
 ## Components
 
-![stepper motors](images/Motors.png)
-
 Our theta stepper motor controls our angle and our radius stepper motor controls how far out the pen is from the pivot. Our solenoid makes our pen move up and down.
 
 <p float="left">
