@@ -27,21 +27,11 @@ A video of our working system is shown below.
 
 Our theta stepper motor controls our angle and our radius stepper motor controls how far out the pen is from the pivot. Our solenoid makes our pen move up and down.
 
-<div class="row">
-  <div class="column">
-    <img src="" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" style="width:100%">
-  </div>
-</div>
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" style="width:100%">
 
 Pen Actuator             |  Electronics Overview
 :-------------------------:|:-------------------------:
-![]([https://...Dark.png](https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png))  |  ![](https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png)
+![](https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png)  |  ![](https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png)
 
 ![physical board](images/Physical_Board.png)
 
