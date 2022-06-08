@@ -30,7 +30,7 @@ Our theta stepper motor controls our angle and our radius stepper motor controls
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" style="width:100%">
 
 Pen Actuator             |  Electronics Overview
-:-------------------------:|:-------------------------:
+:----------------------------------:|:----------------------------------:
 ![](https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png)  |  ![](https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png)
 
 ![physical board](images/Physical_Board.png)
