@@ -31,11 +31,9 @@ Our theta stepper motor controls our angle and our radius stepper motor controls
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png" width="300" /> 
 </p>
 
-![physical board](images/Physical_Board.png)
 
 Our board is the surface our program draws on. It is made out of wood.
 
-![lead screw](images/Lead_Screw.png)
 
 Our lead screw moves < 2mm I think? > mm per lead. Used for slow but accurate movements.
 
