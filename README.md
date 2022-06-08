@@ -15,7 +15,7 @@ In ME 405 we were tasked with creating a 2.5 degree of freedom non cartesian pen
 
 We decided to create a polar-based pen plotter that utalizes 2 stepper motors, for our radius and theta axis, and a solenoid to control our pen's vertical movement. This was to be done in a system that had a mount, an arm, and a wheel. The arm would have a lead screw that controls our radius and the wheel controls our theta. An imagine of the system is shown below.
 
-![image of system](images/image_of_system.png)
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="600">
 
 A video of our working system is shown below.
 
@@ -27,9 +27,14 @@ A video of our working system is shown below.
 
 Our theta stepper motor controls our angle and our radius stepper motor controls how far out the pen is from the pivot.
 
-![solenoid](images/Solenoid.png)
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png" width="600">
 
 Our solenoid makes our pen move up and down
+
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png" width="600">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" width="600">
+
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" width="600">
 
 ![physical board](images/Physical_Board.png)
 
@@ -84,6 +89,10 @@ We used the following to determine the calculations for our system (shown below)
 Newton Ralphson is a method to find roots to a mechanical system. We used the [Kinematics](##Kinematics) to derive our equations for the radius and theta of our system. We then took the derivative of our main function and used a method of successive approximation to come up with a solution within a specified threshold. This solution is graphed and showed visually below.
 
 ![Newton Ralphson](images/Newton_Ralphson.gif)
+
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Radial Motor Desired Position Plot.png" width="600">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Theta Motor Desired Position Plot.png" width="600">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Triangle Desired Position Plot.png" width="600">
 
 ## Component Walkthrough
 
