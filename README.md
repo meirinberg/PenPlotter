@@ -25,7 +25,7 @@ A video of our working system is shown below.
 
 Our theta stepper motor controls our angle and our radius stepper motor controls how far out the pen is from the pivot. Our solenoid makes our pen move up and down.
 
-<p float="left">
+<p align="center" float="left">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" width="300" />
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png" width="300" />
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png" width="300" /> 
@@ -71,10 +71,12 @@ We utalized a cooporate multiasking class driver that utalizes tasks and queues.
 
 We used the following to determine the calculations for our system (shown below). This analysis should align with any polar-based system. 
 
+<p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OverallDesignDrawing.png" width="600">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsMath1.png" width="600">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsMath2.png" width="200">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsMath3.png" width="600">
+</p>
 
 
 ## Newton Ralphson
