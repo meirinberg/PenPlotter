@@ -1,9 +1,12 @@
-# PenPlotter
-ME 405 - Term Project: 2D Pen Plotter. Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
+# Pen Plotter
+
+Mechanical Engineering 405 - Mechatronics
+Term Project
+Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
 
 ## Project Background
 
-In ME 405 we were tasked with creating a 2.5 degree of freedom non cartesian pen plotter with the following rules:
+In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-cartesian pen plotter with the following rules:
 
 1. The project must be able to draw something
 2. The device must move in two different degrees of freedom (non Cartesian)
@@ -13,7 +16,15 @@ In ME 405 we were tasked with creating a 2.5 degree of freedom non cartesian pen
 
 ## Proposal
 
-We decided to create a polar-based pen plotter that utalizes 2 stepper motors, for our radius and theta axis, and a solenoid to control our pen's vertical movement. This was to be done in a system that had a mount, an arm, and a wheel. The arm would have a lead screw that controls our radius and the wheel controls our theta. An imagine of the system is shown below.
+Our term project combines two operating modes, “Free Draw” and “File Draw”. 
+
+The File Draw mode operates the pen plotter to draw a vector image loaded onto our microcontroller (as the term project requires). 
+
+The Free Draw mode allows for manual drawing using a joystick. The user can control the pen-plotter directly, drawing anything they desire. Clicking the joystick down will make the pen touch the paper for drawing. Clicking the joystick again will lift the pen. The movement of the joystick will control the movement of the pen-plotter. We plan to switch between the two modes using a programmatic method, or by using a real hardware switch.
+
+Our device consists of a solenoid that moves linearly along a long arm. It uses polar coordinates to operate. This system had critical design features to minimize the negative effects of the pen-actuator payload. Our “theta” motor’s mount is bulky, a lead screw-arm with an additional support rod, and a wheel for the end of the arm to reduce downward weight. This arm is mounted to one corner of the drawing canvas, and rotates angularly at its base to sweep angularly across the page. For our radial axis, we use a stepper motor connected to a lead screw to move the pen actuator forward and backward. The pen actuator is made of a solenoid.
+
+Please refer to the sketch on the next page to see the initial sketch of our project’s hardware design.
 
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="600">
 
