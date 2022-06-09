@@ -149,8 +149,14 @@ Used for user controlled movement. Utalizes velocity mode as in practice it is e
 ### Solenoid
 ### Power Supply and Relays
 ### LCD
+The LCD board is configured in 4-bit mode. The LCD class was written manually by using delays and bit-banging pins. Initially, we thought the use of delays would slow down our pen plotter other functions. However, we were able to reduce the delay to 0.0005 seconds which proved to be so fast that the delays were negligable. Unfortunately, 4-bit requires more wires than that of an I2C configured LCD. To tackle the large wiring footprint, we soldered our pin connections to a solder-board. This reduction in size allowed the LCD to fit within the 3D-printed housing we designed for it.
 ### Joystick
+The joystick employs two ADCs to read the X and Y axes from the joystick potentiometer. We used the ADC code that we built in our first mechatronics lab. We configured three GPIO pins as inputs, two for the ADCs and one for the joystick's button. We flipped some of the axes via programming because our 3D-printed housing prefered the joystick oriention to have the wires facing the top.
 ## User Interface
-## Software Design
+We designed our program to include a LCD-based user interface. This took some thoughtful programming. The user can scroll through the list of options using the joystick axes and click the joystick to make a selection. Using the custom LCD class we wrote, we sent one menu item to each line of the screen. We added a ">" character to prefix one menu option as a way for the user to highlight which item they wished to select.  The program uses indexing to know which choice they have highlighted and selected. To implement the scroll look, the program chooses which items to present in the list, one for each line. If the user has reached the top or bottom of the list, the scrolling ability stops.
 
+The first menu item is always "Free Draw" which will put the program into that mode when selected. The next menu items are loaded from a basic file explorer function we programmed. The file explorer opens the current directory and finds the files with a .hpgl extension. It then lists those HP-GL files as the next menu items. Clicking an HP-GL file will cause the program to run "File Draw" mode using that filename.
+
+The blue button on the STM32 microcontroller acts as our in-print cancellation button. By clicking this button during an active print, the pen plotter will home back to its starting position and return to the main menu user interface.
+## Software Design
 
