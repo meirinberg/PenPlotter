@@ -3,6 +3,7 @@
 Mechanical Engineering 405 - Mechatronics <br> 
 Term Project <br> 
 Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="600">
 </p>
 
 
@@ -24,7 +25,6 @@ The following image displays our initial sketch of our project’s hardware. Eve
 ## Construction and Final Design
 Our device consists of a solenoid that moves linearly along a long arm. It uses polar coordinates to operate. This system had critical design features to minimize the negative effects of the pen-actuator payload. Our “theta” motor’s mount is bulky, a lead screw-arm with an additional support rod, and a wheel for the end of the arm to reduce downward weight. This arm is mounted to one corner of the drawing canvas, and rotates angularly at its base to sweep angularly across the page. For our radial axis, we use a stepper motor connected to a lead screw to move the pen actuator forward and backward. The pen actuator is made of a solenoid.
 
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="600">
 Our theta stepper motor controls our angle and our radius stepper motor controls how far out the pen is from the pivot. Our solenoid makes our pen move up and down.
 
 <p align="center" float="left">
