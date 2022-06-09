@@ -40,7 +40,9 @@ Our theta stepper motor controls our angle and our radius stepper motor controls
 </p>
 
 ## Wiring Diagram - high level
-
+<p align="center">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Level_0_Diagram_2.JPG" align="center" width="500">
+</p>
 
 ## Code Structure and Implementation
 Our term project combines two operating modes, “Free Draw” and “File Draw”. 
@@ -102,7 +104,7 @@ $\frac{\partial g(\theta))}{\partial \theta} = -\frac{\partial}{\partial \theta}
 Newton Raphson is a method to find roots to a mechanical system. We used the [Kinematics](##Kinematics) to derive our equations for the radius and theta of our system. We then took the derivative of our main function and used a method of successive approximation to come up with a solution within a specified threshold. This solution is graphed and showed visually below.
 
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Newton_Ralphson.gif" align="center" width="300">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Newton_Ralphson.gif" align="center" width="500">
 </p>
   
 <p align="center" float="left">
