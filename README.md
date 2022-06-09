@@ -48,7 +48,7 @@ The Free Draw mode allows for manual drawing using a joystick. The user can cont
 
 We used the following to determine the calculations for our system (shown below). This analysis should align with any polar-based system. 
 
-<img src="https://render.githubusercontent.com/render/math?math={\color{white}\The design of our robot follows the standard polar coordinate system. The two parameters are a radius, $r$, and an angle, $\theta$. Our robot will be mounted at the bottom left corner of the drawing paper.
+The design of our robot follows the standard polar coordinate system. The two parameters are a radius, $r$, and an angle, $\theta$. Our robot will be mounted at the bottom left corner of the drawing paper.
 
 Two stepper motors will be used to drive both these variables. Thus, the proper stepping angles must be calculated to operate the system correctly. 
 
