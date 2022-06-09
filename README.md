@@ -8,10 +8,10 @@ Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
 
 ## Project Background
 
-In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-cartesian pen plotter with the following rules:
+In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-Cartesian pen plotter with the following rules:
 
 1. The project must be able to draw something
-2. The device must move in two different degrees of freedom (non Cartesian)
+2. The device must move in two different degrees of freedom (non-Cartesian)
 3. Must use stepper motors for 2 axes
 4. Must run off of 24V benchtop power supplies drawing no more than 6A
 5. Must be safe (generally no lasers, fire, or hazarderous systems)
