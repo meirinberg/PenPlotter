@@ -87,13 +87,7 @@ $ \frac{df_1}{dt} = \frac{d}{dt}[\frac{\theta_2}{\alpha}cos(\theta_1)] = \frac{1
 
 $ \frac{df_2}{dt} = \frac{d}{dt}[\frac{\theta_2}{\alpha}sin(\theta_1)] = \frac{1}{\alpha}sin(\theta_1) + \frac{\theta_2}{\alpha}cos(\theta_1)$
 
-$x$ = $\begin{bmatrix}
-  -\frac{\theta_2}{\alpha}sin(\theta_1) & \frac{1}{\alpha}cos(\theta_1)\\
-  \frac{\theta_2}{\alpha}cos(\theta_1) & \frac{1}{\alpha}sin(\theta_1)
-\end{bmatrix}$ $\begin{bmatrix}
-  \frac{1}{\alpha}(cos(\theta_1) - \theta_2sin(\theta_1)\\
-  \frac{1}{\alpha}(sin(\theta_1) + \theta_2cos(\theta_1)
-\end{bmatrix}$ 
+$x$ = $\begin{bmatrix}  -\frac{\theta_2}{\alpha}sin(\theta_1) & \frac{1}{\alpha}cos(\theta_1)\\  \frac{\theta_2}{\alpha}cos(\theta_1) & \frac{1{\alpha}sin(\theta_1)\end{bmatrix}$ $\begin{bmatrix}  \frac{1}{\alpha}(cos(\theta_1) - \theta_2sin(\theta_1)\\  \frac{1}{\alpha}(sin(\theta_1) + \theta_2cos(\theta_1)\end{bmatrix}$ 
 
 $x$ = $\begin{bmatrix}
   -\frac{\theta_2}{\alpha}sin(\theta_1)[\frac{1}{\alpha}(cos(\theta_1) - \theta_2sin(\theta_1)] +  \frac{1}{\alpha}cos(\theta_1)[\frac{1}{\alpha}(sin(\theta_1)+\theta_2cos(\theta_1)]\\
