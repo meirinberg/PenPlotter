@@ -3,9 +3,11 @@
 Mechanical Engineering 405 - Mechatronics <br> 
 Term Project <br> 
 Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
+</p>
+<br>
+<p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="600">
 </p>
-
 
 ## Project Background
 
