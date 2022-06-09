@@ -70,21 +70,13 @@ $\frac{\partial f}{\partial \theta}$ = $\begin{bmatrix}
   \frac{\partial f_2}{\partial \theta_1} & \frac{\partial f_2}{\partial \theta_2}
 \end{bmatrix}$
 
-$
-\frac{\partial f_1}{\partial \theta_1} = -\frac{\theta_2}{\alpha}sin(\theta_1)
-$
+$\frac{\partial f_1}{\partial \theta_1} = -\frac{\theta_2}{\alpha}sin(\theta_1)$
 
-$
-\frac{\partial f_1}{\partial \theta_2} = \frac{1}{\alpha}cos(\theta_1)
-$
+$\frac{\partial f_1}{\partial \theta_2} = \frac{1}{\alpha}cos(\theta_1)$
 
-$
-\frac{\partial f_2}{\partial \theta_1} = \frac{\theta_2}{\alpha}cos(\theta_1)
-$
+$\frac{\partial f_2}{\partial \theta_1} = \frac{\theta_2}{\alpha}cos(\theta_1)$
 
-$
-\frac{\partial f_2}{\partial \theta_2} = \frac{1}{\alpha}sin(\theta_1)
-$
+$\frac{\partial f_2}{\partial \theta_2} = \frac{1}{\alpha}sin(\theta_1)$
 
 Find the velocity kinematics by differentiating x = f(θ) with respect to time:
 
