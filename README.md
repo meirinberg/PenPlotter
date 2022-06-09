@@ -28,6 +28,8 @@ The Free Draw mode allows for manual drawing using a joystick. The user can cont
 
 
 Please refer to the sketch on the next page to see the initial sketch of our project’s hardware design.
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="600">
+
 
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="600">
 
