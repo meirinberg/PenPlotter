@@ -24,6 +24,7 @@ The following image displays our initial sketch of our project’s hardware. Eve
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
 </p>
+## First Iteration Challenges
 
 ## Construction and Final Design
 Our final design closely follows the core concept of our initial sketch and accounts for the different geometry of using a NEMA 17 motor in our angular subsystem. This angular system is mounted in the center of a half circle drawing canvas, and angularly rotates the radial system at its base to sweep angularly across the drawing area. We do not make use of the entire half circle, since part of it will be used as space for the electronics. 
