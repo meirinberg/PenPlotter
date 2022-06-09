@@ -39,7 +39,7 @@ Our theta stepper motor controls our angle and our radius stepper motor controls
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png" width="250" /> 
 </p>
 
-## Wiring Diagram - high level
+## Wiring Diagram - High Level
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Level_0_Diagram_2.JPG" align="center" width="500">
 </p>
