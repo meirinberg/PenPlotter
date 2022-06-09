@@ -56,7 +56,73 @@ Our first parameter, $\theta$, will be used by the first stepper motor to move t
 
 The radius parameter, $r$, moves along a lead screw with a 2mm pitch. By using the second stepper motor to rotate the lead screw, we can move to our desired radius. As such, we must calculate the stepper motor rotation needed to move a desired distance along the lead screw (denoted as $\theta_2$). We know that there are 25.4mm per inch, so that implies there are 12.7 threads per inch. Furthermore, $\theta_2 \cdot \frac{2mm}{2\pi} \cdot \frac{1 in}{25.4mm} = \frac{\theta_2}{\pi 25.4 in}$. This constant, $\pi \cdot 25.4$, (denoted as $\alpha$), is used below.
 
-Recall the trigonometric relationship between cartesian and polar coordinates: $x = rcos(\theta_1)$ and $y = rsin(\theta_1)$">
+Recall the trigonometric relationship between cartesian and polar coordinates: $x = rcos(\theta_1)$ and $y = rsin(\theta_1)$
+
+Initial Matrix:
+$\begin{bmatrix}
+  x\\
+  y
+\end{bmatrix}$ = $\begin{bmatrix}
+  \frac{\theta_2}{\alpha} & cos(\theta_1)\\
+  \frac{\theta_2}{\alpha} & sin(\theta_1)
+\end{bmatrix}$ 
+
+$x = f(\theta)$
+
+Jacobian Matrix:
+$\frac{\partial f}{\partial \theta}$ = $\begin{bmatrix}
+  \frac{\partial f_1}{\partial \theta_1} & \frac{\partial f_1}{\partial \theta_2}\\
+  \frac{\partial f_2}{\partial \theta_1} & \frac{\partial f_2}{\partial \theta_2}
+\end{bmatrix}$
+
+$
+\frac{\partial f_1}{\partial \theta_1} = -\frac{\theta_2}{\alpha}sin(\theta_1)
+$
+
+$
+\frac{\partial f_1}{\partial \theta_2} = \frac{1}{\alpha}cos(\theta_1)
+$
+
+$
+\frac{\partial f_2}{\partial \theta_1} = \frac{\theta_2}{\alpha}cos(\theta_1)
+$
+
+$
+\frac{\partial f_2}{\partial \theta_2} = \frac{1}{\alpha}sin(\theta_1)
+$
+
+Find the velocity kinematics by differentiating x = f(θ) with respect to time:
+
+$x = \frac{d}{dt}(f(\theta))$
+
+$ \frac{df_1}{dt} = \frac{d}{dt}[\frac{\theta_2}{\alpha}cos(\theta_1)] = \frac{1}{\alpha}cos(\theta_1) - \frac{\theta_2}{\alpha}sin(\theta_1)$
+
+$ \frac{df_2}{dt} = \frac{d}{dt}[\frac{\theta_2}{\alpha}sin(\theta_1)] = \frac{1}{\alpha}sin(\theta_1) + \frac{\theta_2}{\alpha}cos(\theta_1)$
+
+$x$ = $\begin{bmatrix}
+  -\frac{\theta_2}{\alpha}sin(\theta_1) & \frac{1}{\alpha}cos(\theta_1)\\
+  \frac{\theta_2}{\alpha}cos(\theta_1) & \frac{1}{\alpha}sin(\theta_1)
+\end{bmatrix}$ $\begin{bmatrix}
+  \frac{1}{\alpha}(cos(\theta_1) - \theta_2sin(\theta_1)\\
+  \frac{1}{\alpha}(sin(\theta_1) + \theta_2cos(\theta_1)
+\end{bmatrix}$ 
+
+$x$ = $\begin{bmatrix}
+  -\frac{\theta_2}{\alpha}sin(\theta_1)[\frac{1}{\alpha}(cos(\theta_1) - \theta_2sin(\theta_1)] +  \frac{1}{\alpha}cos(\theta_1)[\frac{1}{\alpha}(sin(\theta_1)+\theta_2cos(\theta_1)]\\
+  \frac{\theta_2}{\alpha}cos(\theta_1)[\frac{1}{\alpha}(cos(\theta_1) - \theta_2sin(\theta_1)] +  \frac{1}{\alpha}sin(\theta_1)[\frac{1}{\alpha}(sin(\theta_1)+\theta_2cos(\theta_1)]\end{bmatrix}$ 
+
+
+Inverse Kinematics:
+$y = x - f(\theta) = g(\theta)$
+
+$
+\frac{\partial g(\theta))}{\partial \theta} = \frac{\partial}{\partial \theta}[0-f(\theta)]
+$
+
+$
+\frac{\partial g(\theta))}{\partial \theta} = -\frac{\partial}{\partial \theta}f(\theta)
+$
+
 
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OverallDesignDrawing.png" width="600">
