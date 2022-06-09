@@ -77,7 +77,6 @@ Used for user controlled movement. Utalizes velocity mode as in practice it is e
 
 ## Wiring Diagram - high level
 
-< level 1 diagram (big boxes ins/outs) >
 
 ## Driver Design
 
@@ -95,9 +94,9 @@ We used the following to determine the calculations for our system (shown below)
 </p>
 
 
-## Newton Ralphson
+## Newton Raphson
 
-Newton Ralphson is a method to find roots to a mechanical system. We used the [Kinematics](##Kinematics) to derive our equations for the radius and theta of our system. We then took the derivative of our main function and used a method of successive approximation to come up with a solution within a specified threshold. This solution is graphed and showed visually below.
+Newton Raphson is a method to find roots to a mechanical system. We used the [Kinematics](##Kinematics) to derive our equations for the radius and theta of our system. We then took the derivative of our main function and used a method of successive approximation to come up with a solution within a specified threshold. This solution is graphed and showed visually below.
 
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Newton_Ralphson.gif" align="center" width="300">
@@ -113,24 +112,24 @@ Newton Ralphson is a method to find roots to a mechanical system. We used the [K
 
 ### Microcontroller
 
-< peripherals clocks settings etc (basically our init) >
+
 
 ### Stepper Motors
 
-< level 2 diagram (detailed system) >
+
 
 ### Solenoid
 
-< level 2 diagram (detailed system) >
+
 
 ### Power Supply and Relays
 
-< level 2 diagram (detailed system) >
+
 
 ### LCD
 
-< level 2 diagram (detailed system) >
+
 
 ### Joystick
 
-< level 2 diagram (detailed system) >
+
