@@ -103,13 +103,9 @@ $x$ = $\begin{bmatrix}
 Inverse Kinematics:
 $y = x - f(\theta) = g(\theta)$
 
-$
-\frac{\partial g(\theta))}{\partial \theta} = \frac{\partial}{\partial \theta}[0-f(\theta)]
-$
+$\frac{\partial g(\theta))}{\partial \theta} = \frac{\partial}{\partial \theta}[0-f(\theta)]$
 
-$
-\frac{\partial g(\theta))}{\partial \theta} = -\frac{\partial}{\partial \theta}f(\theta)
-$
+$\frac{\partial g(\theta))}{\partial \theta} = -\frac{\partial}{\partial \theta}f(\theta)$
 
 ## Newton Raphson
 
