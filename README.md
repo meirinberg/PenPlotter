@@ -117,8 +117,7 @@ A video of our working system is shown below.
 
 [Video demo of our system](youtube.com)
 
-## Components
-
+## Component Walkthrough
 
 Our board is the surface our program draws on. It is made out of wood.
 
@@ -138,14 +137,13 @@ Used to show the user real time location info of where our pen is.
 
 Used for user controlled movement. Utalizes velocity mode as in practice it is easier to draw by hand with.
 
-
-
-## Component Walkthrough
 ### Microcontroller
 ### Stepper Motors
 ### Solenoid
 ### Power Supply and Relays
 ### LCD
 ### Joystick
+## User Interface
+## Software Design
 
 
