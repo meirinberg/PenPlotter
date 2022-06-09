@@ -24,6 +24,7 @@ The following image displays our initial sketch of our project’s hardware. Eve
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
 </p>
+
 ## First Iteration Challenges
 
 ## Construction and Final Design
