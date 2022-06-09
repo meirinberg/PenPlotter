@@ -1,6 +1,5 @@
-<p align="center">
 # Pen Plotter
-
+<p align="center">
 Mechanical Engineering 405 - Mechatronics
 
 Term Project
