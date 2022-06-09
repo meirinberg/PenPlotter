@@ -17,6 +17,7 @@ In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-Cartesian pen
 5. Must be safe (generally no lasers, fire, or hazarderous systems)
 
 ## Proposal
+Our device consists of a solenoid that moves linearly along a long arm. It uses polar coordinates to operate. This system had critical design features to minimize the negative effects of the pen-actuator payload. Our “theta” motor’s mount is bulky, a lead screw-arm with an additional support rod, and a wheel for the end of the arm to reduce downward weight. This arm is mounted to one corner of the drawing canvas, and rotates angularly at its base to sweep angularly across the page. For our radial axis, we use a stepper motor connected to a lead screw to move the pen actuator forward and backward. The pen actuator is made of a solenoid.
 
 Our term project combines two operating modes, “Free Draw” and “File Draw”. 
 
@@ -24,7 +25,7 @@ The File Draw mode operates the pen plotter to draw a vector image loaded onto o
 
 The Free Draw mode allows for manual drawing using a joystick. The user can control the pen-plotter directly, drawing anything they desire. Clicking the joystick down will make the pen touch the paper for drawing. Clicking the joystick again will lift the pen. The movement of the joystick will control the movement of the pen-plotter. We plan to switch between the two modes using a programmatic method, or by using a real hardware switch.
 
-Our device consists of a solenoid that moves linearly along a long arm. It uses polar coordinates to operate. This system had critical design features to minimize the negative effects of the pen-actuator payload. Our “theta” motor’s mount is bulky, a lead screw-arm with an additional support rod, and a wheel for the end of the arm to reduce downward weight. This arm is mounted to one corner of the drawing canvas, and rotates angularly at its base to sweep angularly across the page. For our radial axis, we use a stepper motor connected to a lead screw to move the pen actuator forward and backward. The pen actuator is made of a solenoid.
+
 
 Please refer to the sketch on the next page to see the initial sketch of our project’s hardware design.
 
