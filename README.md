@@ -61,7 +61,7 @@ The radius parameter, $r$, moves along a lead screw with a 2mm pitch. By using t
 Recall the trigonometric relationship between cartesian and polar coordinates: $x = rcos(\theta_1)$ and $y = rsin(\theta_1)$
 
 Initial Matrix:
-$\begin{bmatrix}x \\y \end{bmatrix}$= $\begin{bmatrix}  \frac{\theta_2}{\alpha} & cos(\theta_1) \\  \frac{\theta_2}{\alpha} & sin(\theta_1)\end{bmatrix}$ 
+$\begin{bmatrix}x \\ y \end{bmatrix}$= $\begin{bmatrix}  \frac{\theta_2}{\alpha} & cos(\theta_1) \\  \frac{\theta_2}{\alpha} & sin(\theta_1)\end{bmatrix}$ 
 
 $x = f(\theta)$
 
