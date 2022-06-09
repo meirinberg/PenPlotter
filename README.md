@@ -28,6 +28,7 @@ The following image displays our initial sketch of our project’s hardware. Eve
 ## First Iteration Challenges
 
 ## Construction and Final Design
+### Mechanical Design
 Our final design closely follows the core concept of our initial sketch and accounts for the different geometry of using a NEMA 17 motor in our angular subsystem. This angular system is mounted in the center of a half circle drawing canvas, and angularly rotates the radial system at its base to sweep angularly across the drawing area. We do not make use of the entire half circle, since part of it will be used as space for the electronics. 
 <br>
 
@@ -45,6 +46,8 @@ Because of the shaft support structure, we don’t have to worry about the large
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png" width="250" />
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png" width="250" /> 
 </p>
+### Electrical Design
+
 
 ## Wiring Diagram - High Level
 <p align="center">
