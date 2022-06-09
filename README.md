@@ -45,7 +45,7 @@ We used the STM32 as our microcontroller. The Microcontroller has < x ram > and 
 
 The shoe of brian is neccessary as an adaptor to utalize micropython for our project. This is due to limittation present on our stm32 hardware. 
 
-![power board](images/Power_Board.png)
+#![power board](images/Power_Board.png)
 
 Used for tmc2208s and tmc4210s, which control our stepper motors in this project. Contains all of our power connections except for the solonoid due to hardware limitations. 
 
