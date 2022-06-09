@@ -1,3 +1,4 @@
+<p align="center">
 # Pen Plotter
 
 Mechanical Engineering 405 - Mechatronics
@@ -5,6 +6,7 @@ Mechanical Engineering 405 - Mechatronics
 Term Project
 
 Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
+</p>
 
 
 ## Project Background
