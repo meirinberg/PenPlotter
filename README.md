@@ -192,10 +192,10 @@ We had two 4-wire stepper motors with internals shown below. By inducing a curre
 ### Solenoid
 
 <p align="center">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Solenoid.JPG" align="right" width="250">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Solenoid.JPG" align="right" width="150">
 </p>
 
-We utalized a non-polar solenoid to control our pen up and pen down motion. We mounted the [solenoid to a rail](### Electrical Design), so we were able to do pen up and pen down motions in any position in our radial and theta axis.
+We utalized a non-polar solenoid to control our pen up and pen down motion. We mounted the [solenoid to a rail](https://github.com/meirinberg/PenPlotter/blob/main/README.md#mechanical-design), so we were able to do pen up and pen down motions in any position in our radial and theta axis.
 
 ### Power Supply and Relays
 ### LCD
