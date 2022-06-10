@@ -53,6 +53,8 @@ Looking at the electrical components of our project, we were provided a Nucleo L
 </p>
 
 ## Wiring Diagram
+We used pinhole soldier boards for our hardware with trimmed leads. This ensured that we would not have a faultly connect due to poor breadboard conductivity while minimizing our resistances through smaller wires. This resulted in a wiring that never faultered. This wiring is modeled below.
+
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Microcontroller.JPG" align="center" width="750">
 </p>
