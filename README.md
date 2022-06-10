@@ -53,7 +53,7 @@ Looking at the electrical components of our project, we were provided a Nucleo L
 </p>
 
 ## Wiring Diagram
-We used pinhole soldier boards for our hardware with trimmed leads. This ensured that we would not have a faultly connect due to poor breadboard conductivity while minimizing our resistances through smaller wires. This resulted in a wiring that never faultered. This wiring is modeled below.
+We used pinhole soldier boards for our hardware with trimmed leads. This ensured that we would not have a faultly connect due to poor breadboard conductivity while minimizing our resistances through smaller wires. This resulted in a wiring that never faultered. This wiring is modeled below. We interfaces with our hardware using [Thonny](https://thonny.org/) connected to a laptop through a usb to micro usb connection. This powered our microcontroller, the STM32, which was the brains for our project. The STM32 had an attached Shoe of Brian to allow us to use micropython for this project. We utalized micropython to poll our Joy Stick and send data to our LCD. The STM32 also controlled the pen being up or down through a Solenoid that was attached to a relay and interfaces with our power board. The Power Board contained two TMC4210s and two TMC2208s. The TMC4210s controlled our system being on and the TMC2208s interfaced with our stepper motors as well as limitted their current draw to 0.8 amps in order to prevent the components from getting too hot and get damaged. 
 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Microcontroller.JPG" align="center" width="750">
