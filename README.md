@@ -9,6 +9,15 @@ Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="500">
 </p>
 
+## Demonstration
+A demonstration of our pen plotter can be found using the following links. The first link demonstrates all features of our pen plotter and attempts to draw a triangle. As discussed in the video, the class provided motors are old and lock up occasionally and sometimes the drawing can't be finished. However, the second video shows a complete demonstration of the plotter drawing a triangle.
+
+Pen Plotter Demonstration and Triangle Drawing Attempt
+https://youtu.be/bnkg2Q-DLaM
+Complete Triangle Drawing Attempt
+https://youtu.be/nqa20NQLPtA
+
+
 ## Project Background
 
 In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-Cartesian pen plotter with the following rules:
@@ -150,10 +159,6 @@ Once the image was processed, we verified our analysis by plotting motor angular
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Theta Motor Desired Position Plot.png" width="280">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Triangle Desired Position Plot.png" width="280">
 </p>
-
-A video of our working system is shown below.
-https://drive.google.com/file/d/11GpJqVMXuMbNbMK2ilcNObvONMfHixPS/view?usp=sharing
-[Video demo of our system](youtube.com)
 
 ## Component Walkthrough
 
