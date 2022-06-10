@@ -197,7 +197,7 @@ We had two 4-wire stepper motors with internals shown below. By inducing a curre
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/LCD .jpg" align="right" width="250">
 </p>
 
-The LCD board is configured in 4-bit mode. The LCD class was written manually by using delays and bit-banging pins. Initially, we thought the use of delays would slow down our pen plotter's other functions. However, we were able to reduce the delay to 0.0005 seconds which proved to be so fast that the delays were negligable. Unfortunately, 4-bit requires more wires than that of an I2C configured LCD. To tackle the large wiring footprint, we soldered our pin connections to a solder-board. This reduction in size allowed the LCD to fit within the 3D-printed housing we designed for it.
+The LCD board is configured in 4-bit mode. The LCD class was written manually by using delays and bit-banging pins. Initially, we thought the use of delays would slow down our pen plotter's other functions. However, we were able to reduce the delay to 0.0005 seconds which proved to be so fast that the delays were negligable. Unfortunately, 4-bit requires more wires than that of an I2C configured LCD. To tackle the large wiring footprint, we soldered our pin connections to a solder-board. This reduction in size allowed the LCD to fit within the 3D-printed housing we designed for it. We attached a potentiometer for the ability to manually adjust the contrast of the LCD.
 
 
 ### Joystick
