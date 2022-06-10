@@ -77,7 +77,7 @@ The blue button on the STM32 microcontroller acts as our in-print cancellation b
 We used the following to determine the calculations for our system (shown below). This analysis should align with any polar-based system. 
 
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsWebsiteImage.png" width="400">
 </p>
 
 The design of our robot follows the standard polar coordinate system. The two parameters are a radius, $r$, and an angle, $\theta$. Our robot will be mounted at the bottom left corner of the drawing paper.
