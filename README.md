@@ -56,7 +56,7 @@ Because of the shaft support structure, we don’t have to worry about the large
 
 ## Code Structure and Implementation
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.PNG" align="center" width="500">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.JPG" align="center" width="500">
 </p>
 Our term project combines two operating modes, “Free Draw” and “File Draw”. 
 
@@ -117,7 +117,7 @@ $\frac{\partial g(\theta))}{\partial \theta} = -\frac{\partial}{\partial \theta}
 Newton Raphson is a method to find roots to a mechanical system. We used the [Kinematics](##Kinematics) to derive our equations for the radius and theta of our system. We then took the derivative of our main function and used a method of successive approximation to come up with a solution within a specified threshold. This solution is graphed and showed visually below.
 
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Newton_Ralphson.gif" align="center" width="500">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle_Plotting/Triangle.gif" align="center" width="500">
 </p>
   
 <p align="center" float="left">
