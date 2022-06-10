@@ -6,7 +6,7 @@ Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
 </p>
 <br>
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="500">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Whole Setup.jpg" width="500">
 </p>
 
 ## Project Background
@@ -22,7 +22,7 @@ In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-Cartesian pen
 ## Proposal
 The following image displays our initial sketch of our project’s hardware. Even though the structure of each component has been substantially refined, the core function can still be demonstrated in the sketch. It consists of a pivot point in the ‘Angular Subsystem’ sketch serving as the origin about which all major drawing components rotate around. The ‘Radial Subsystem’ is an arm that extends overhead across the drawing area and will provide structure for moving the pen. At the end is a T-shaped support structure with a wheel on the bottom. This minimizes the friction required to start rotating the radial subsystem about the angular subsystem. The next subsystem is the pen holder. This holds and activates the pen as well as moves along the radial subsystem using a lead screw. The pen is envisioned to be pressed down by a solenoid upon activation. In its entirety, this project uses basic polar coordinates to accomplish drawing.
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
 </p>
 
 ## First Iteration Challenges
@@ -54,18 +54,19 @@ Looking at the electrical components of our project, we were provided a Nucleo L
 
 ## High Level Wiring Diagram
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Microcontroller.JPG Pictures/Microcontroller.JPG" align="center" width="500">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Microcontroller.JPG Pictures/Microcontroller.JPG" align="center" width="500">
 </p>
 
 ## Software Design and Implementation
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.jpg" align="center" width="500">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.jpg" align="center" width="500">
 </p>
 Our term project combines two operating modes, “Free Draw” and “File Draw”. 
 
 The File Draw mode operates the pen plotter to draw a vector image loaded onto our microcontroller (as the term project requires). 
 
 The Free Draw mode allows for manual drawing using a joystick. The user can control the pen-plotter directly, drawing anything they desire. Clicking the joystick down will make the pen touch the paper for drawing. Clicking the joystick again will lift the pen. The movement of the joystick will control the movement of the pen-plotter. We plan to switch between the two modes using a programmatic method, or by using a real hardware switch.
+
 ### User Interface
 We designed our program to include a LCD-based user interface. This took some thoughtful programming. The user can scroll through the list of options using the joystick axes and click the joystick to make a selection. Using the custom LCD class we wrote, we sent one menu item to each line of the screen. We added a ">" character to prefix one menu option as a way for the user to highlight which item they wished to select.  The program uses indexing to know which choice they have highlighted and selected. To implement the scroll look, the program chooses which items to present in the list, one for each line. If the user has reached the top or bottom of the list, the scrolling ability stops.
 
@@ -77,7 +78,7 @@ The blue button on the STM32 microcontroller acts as our in-print cancellation b
 We used the following to determine the calculations for our system (shown below). This analysis should align with any polar-based system. 
 
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsWebsiteImage.png" width="400">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsWebsiteImage.png" width="400">
 </p>
 
 The design of our robot follows the standard polar coordinate system. The two parameters are a radius, $r$, and an angle, $\theta$. Our robot will be mounted at the bottom left corner of the drawing paper.
@@ -129,13 +130,13 @@ $\frac{\partial g(\theta))}{\partial \theta} = -\frac{\partial}{\partial \theta}
 Newton Raphson is a method to find roots to a mechanical system. We used the [Kinematics](##Kinematics) to derive our equations for the radius and theta of our system. We then took the derivative of our main function and used a method of successive approximation to come up with a solution within a specified threshold. This solution is graphed and showed visually below.
 
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" align="center" width="500">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" align="center" width="500">
 </p>
   
 <p align="center" float="left">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Radial Motor Desired Position Plot.png" width="280">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Theta Motor Desired Position Plot.png" width="280">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Triangle Desired Position Plot.png" width="280">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Radial Motor Desired Position Plot.png" width="280">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Theta Motor Desired Position Plot.png" width="280">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Triangle Desired Position Plot.png" width="280">
 </p>
 
 A video of our working system is shown below.
