@@ -32,10 +32,10 @@ In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-Cartesian pen
 ## Proposal
 This project uses basic polar coordinates to accomplish drawing.The following image displays our initial sketch of our project’s hardware. Even though the structure of each component has been substantially refined, the core function can still be demonstrated in the sketch. It consists of a pivot point in the ‘Angular Subsystem’ sketch serving as the origin about which all major drawing components rotate around. The ‘Radial Subsystem’ is an arm that extends overhead across the drawing area and will provide structure for moving the pen. At the end is a T-shaped support structure with a wheel on the bottom. The wheel minimizes the friction required to start rotating the radial subsystem about the angular subsystem. We decided to use a support structure because without it, there would be a moment experienced by the angular motor rotor when the pen holder would be far out along in the radial direction. This could ultimately make it more difficult to move the motors and add drooping to the system. The next subsystem is the pen holder. This holds and activates the pen as well as moves along the radial subsystem using a lead screw. The pen is envisioned to be pressed down by a solenoid upon activation.
 <p align="center">
-  <figure>
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
-    <figcaption>Initial sketch of pen plotter systsem</figcaption>
-  <figure>
+<figure>
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
+<figcaption>Initial sketch of pen plotter systsem</figcaption>
+<figure>
 </p>
 
 ## First Iteration Challenges
