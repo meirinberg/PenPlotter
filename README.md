@@ -146,9 +146,7 @@ https://drive.google.com/file/d/11GpJqVMXuMbNbMK2ilcNObvONMfHixPS/view?usp=shari
 
 Our board is the surface our program draws on. It is made out of wood.
 
-Our lead screw moves < 2mm I think? > mm per lead. Used for slow but accurate movements.
-
-We used the STM32 as our microcontroller. The Microcontroller has < x ram > and < x storage >. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project.
+We used the STM32 as our microcontroller. The Microcontroller has < x ram > and < x storage >. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project. 
 
 
 The shoe of brian is neccessary as an adaptor to utalize micropython for our project. This is due to limittation present on our stm32 hardware. 
