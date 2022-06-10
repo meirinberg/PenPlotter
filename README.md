@@ -49,7 +49,7 @@ Looking at the electrical components of our project, we were provided a Nucleo L
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png" width="250" />
 </p>
 
-## Wiring Diagram - High Level
+## High Level Wiring Diagram
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Level_0_Diagram_2.JPG" align="center" width="500">
 </p>
@@ -127,7 +127,7 @@ Newton Raphson is a method to find roots to a mechanical system. We used the [Ki
 </p>
 
 A video of our working system is shown below.
-
+https://drive.google.com/file/d/11GpJqVMXuMbNbMK2ilcNObvONMfHixPS/view?usp=sharing
 [Video demo of our system](youtube.com)
 
 ## Component Walkthrough
