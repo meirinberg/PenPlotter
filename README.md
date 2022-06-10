@@ -59,7 +59,11 @@ Because of the shaft support structure, we don’t have to worry about the large
 </p>
 
 ### Electrical Design
-Looking at the electrical components of our project, we were provided a Nucleo L476RG and a custom-made power board with a TMC4210 and TMC2208 motor driver per stepper motor. Datasheets for these components can be found a the folder above. A 24V power supply is hooked up to the power board to supply power to the motors. For the solenoid, we used a solid-state relay and a separate power source because of its different power requirements. As seen in the image below, a joystick and LCD were also used as a user interface. As will be discussed later, these work together to select drawing files and control the free draw feature.
+Looking at the electrical components of our project, we were provided a Nucleo L476RG and a custom-made power board with a TMC4210 and TMC2208 motor driver per stepper motor. Datasheets for these components can be found a the folder above. For each TMC2208, the the voltage reference (Vref) needs to be set to prevent too much current from passing into the electrical equipment and stepper motors. We adjusted this by twisting a screw on the TMC2208 until 
+
+
+
+A 24V power supply is hooked up to the power board to supply power to the motors. For the solenoid, we used a solid-state relay and a separate power source because of its different power requirements. As seen in the image below, a joystick and LCD were also used as a user interface. As will be discussed later, these work together to select drawing files and control the free draw feature.
 <p align="center" float="left">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png" width="250" />
 </p>
