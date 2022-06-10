@@ -54,7 +54,7 @@ Looking at the electrical components of our project, we were provided a Nucleo L
 
 ## High Level Wiring Diagram
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Microcontroller.JPG Pictures/Microcontroller.jpg" align="center" width="500">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Microcontroller.JPG Pictures/Microcontroller.JPG" align="center" width="500">
 </p>
 
 ## Software Design and Implementation
