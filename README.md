@@ -193,7 +193,7 @@ The LCD board is configured in 4-bit mode. The LCD class was written manually by
 ### Joystick
 
 <p align="center">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/JoyStick.JPG" align="right" width="250">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/JoyStick.JPG" align="right" hieght="250">
 </p>
 
 The joystick employs two ADCs to read the X and Y axes from the joystick potentiometer. We used the ADC code that we built in our first mechatronics lab. We used 3.3V to operate the joystick even though it is rated for 5V. We found that operation at 3.3V was optimal becuase that voltage matched the internal reference voltage of the microcontroller's ADC. This allowed for smooth movement tracking with the joystick. However, we did remove noisy inaccuracies at the joystick's center position by introducing a threshold. We configured three GPIO pins as inputs, two for the ADCs and one for the joystick's button. We flipped some of the axes via programming because our 3D-printed housing prefered the joystick oriention to have the wires facing the top.
