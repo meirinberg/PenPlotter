@@ -55,6 +55,9 @@ Because of the shaft support structure, we don’t have to worry about the large
 </p>
 
 ## Code Structure and Implementation
+<p align="center">
+<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.PNG" align="center" width="500">
+</p>
 Our term project combines two operating modes, “Free Draw” and “File Draw”. 
 
 The File Draw mode operates the pen plotter to draw a vector image loaded onto our microcontroller (as the term project requires). 
