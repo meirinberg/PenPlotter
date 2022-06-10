@@ -35,19 +35,19 @@ Our final design closely follows the core concept of our initial sketch and acco
 Our final design still consists of a solenoid to actuate the pen. It was critical for the design of this system to minimize friction preventing the pen from actuating. This is because a solenoid has a starting force and holding force, with the starting force being the smallest since the solenoid is just beginning to actuate. Providing adequate clearance and guide structures allow for the pen to be rigidly actuated under the starting force. Our angular (theta) motor’s mount has a wide base to provide as much support as possible. Thrust bearings are used between the theta and radial motor assembly to further minimize angular friction during drawing. 
 <br>
 
-Because of the shaft support structure, we don’t have to worry about the large moment created on the theta motor when the pen is far out along the lead screw, but this also increases the moment of inertia, making it harder for the theta motor to start rotating. A big design consideration was to make the system as adjustable as possible. There are many set screws around the assembly to make it easier to adjust lengths, heights, and make it easier to replace components. The rest of the system is labeled above. 
+Because of the shaft support structure, we don’t have to worry about the large moment created on the theta motor when the pen is far out along the lead screw, but this also increases the moment of inertia, making it harder for the theta motor to start rotating. A big design consideration was to make the system as adjustable as possible. There are many set screws around the assembly to make it easier to adjust lengths, heights, and replace components. The rest of the system is labeled below. 
 
 
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" width="500" />
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" width="500" />
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png" width="250" />
 </p>
 
+### Electrical Design
+Looking at the electrical components of our project, we were provided a Nucleo L476RG and a custom-made power board with a TMC4210 and TMC2208 motor driver per stepper motor. A 24V power supply is hooked up to the power board to supply power to the motors. For the solenoid, we used a solid-state relay and a separate power source because of its different power requirements. As seen in the image below, a joystick and LCD were also used as a user interface. As will be discussed later, these work together to select drawing files and control the free draw feature.
 <p align="center" float="left">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png" width="250" />
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png" width="250" /> 
 </p>
-### Electrical Design
-
 
 ## Wiring Diagram - High Level
 <p align="center">
