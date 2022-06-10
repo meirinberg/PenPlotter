@@ -163,25 +163,9 @@ Once the image was processed, we verified our analysis by plotting motor angular
 
 ## Component Walkthrough
 
-Our board is the surface our program draws on. It is made out of wood.
-
-We used the STM32L476RG as our microcontroller. The Microcontroller has 128KB ram and 1Mb flash. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project. 
-
-
-The shoe of brian is neccessary as an adaptor to utilize micropython for our project. This is due to limittation present on our stm32 hardware. 
-
-
-Used for TMC2208s and TMC4210s, which control our stepper motors in this project. Contains all of our power connections except for the solonoid due to hardware limitations. 
-
-
-Used to show the user real time location info of where our pen is.
-
-
-Used for user controlled movement. Utilizes velocity mode as in practice it is easier to draw by hand with.
-
 ### Microcontroller
 
-We used the STM32L476RG as our microcontroller. The Microcontroller has 128KB ram and 1Mb flash. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project with a Shoe of Brian attachment in order to interface native C in the STM32 to python.
+We used the STM32L476RG as our microcontroller. The Microcontroller has 128KB ram and 1Mb flash. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project with the Shoe of Brian attachment in order to interface native C in the STM32 to micropython. The Shoe of Brian allows us to "flash" our micropython code to the STM32 board through a simple drag-and-drop on our personal computer.
 
 ### Stepper Motors
 
