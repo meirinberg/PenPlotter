@@ -85,7 +85,7 @@ The blue button on the STM32 microcontroller acts as our in-print cancellation b
 ### S2 – Image Processing
 This state receives the file name selected in the user interface to read the appropriate HPGL data from a file stored on the board. The image processing state can take a long time depending on the complexity of the image. Therefore, it was given the largest period in our task manager. This state calculates all required motor position data in one go and stores it as a global variable to be accessed from the File Draw state. 
 
-All image processing code was derived using the [Newton Raphson](#Newton_Raphson) method based on [Kinematic](#Kinematics) analysis. These sections are discussed later. 
+All image processing code was derived using the [Newton Raphson](#newton_raphson) method based on [Kinematic](#Kinematics) analysis. These sections are discussed later. 
 
 ### S3 – File Draw
 Once image processing is complete, this state will index through each motor angle data and send the commands to the power boards drivers to run the stepper motors. Once the command is sent, our code reads the current position of the motors and will only continue indexing once they have reached their desired positions. The stepper motors are initialized in ramp mode for this state since we need to send position data.
