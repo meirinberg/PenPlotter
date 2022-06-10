@@ -12,9 +12,10 @@ Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
 ## Demonstration
 A demonstration of our pen plotter can be found using the following links. The first link demonstrates all features of our pen plotter and attempts to draw a triangle. As discussed in the video, the class provided motors are old and lock up occasionally and sometimes the drawing can't be finished. However, the second video shows a complete demonstration of the plotter drawing a triangle.
 
-Pen Plotter Demonstration and Triangle Drawing Attempt
+Pen Plotter Demonstration and Triangle Drawing Attempt: <br>
 https://youtu.be/bnkg2Q-DLaM
-Complete Triangle Drawing Attempt
+
+Complete Triangle Drawing Attempt:<br>
 https://youtu.be/nqa20NQLPtA
 
 
