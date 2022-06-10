@@ -152,13 +152,13 @@ The Newton Raphson method was used to find the proper motor angular position dat
 Once the image was processed, we verified our analysis by plotting motor angular data and final plotted positions. As can be seen below, there are no discontinuities in the outputs and our final plot matches the desired triangular image exactly. A GIF was also constructed to show the plotter’s motion as it plots, with the blue line representing the arm of the system, and the red lines representing the drawn pen lines.
 
 <p align="center">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Radial Motor Desired Position Plot.png" width="280">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Theta Motor Desired Position Plot.png" width="280">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Radial Motor Desired Position Plot.png" width="300">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Theta Motor Desired Position Plot.png" width="300">
 </p>
   
 <p align="center" float="left">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Triangle Desired Position Plot.png" width="280">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" align="center" width="500">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Triangle Desired Position Plot.png" width="300">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" align="center" width="300">
 </p>
 
 ## Component Walkthrough
