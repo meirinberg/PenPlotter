@@ -137,7 +137,9 @@ $\frac{\partial g(\theta))}{\partial \theta} = -\frac{\partial}{\partial \theta}
 
 ## Newton Raphson
 
-Newton Raphson is a method to find roots to a mechanical system. We used the [Kinematics](##Kinematics) to derive our equations for the radius and theta of our system. We then took the derivative of our main function and used a method of successive approximation to come up with a solution within a specified threshold. This solution is graphed and showed visually below.
+The Newton Raphson method was used to find the proper motor angular position data to produce desired rectilinear coordinates. This method is typically used to find the roots of a function. Rather than use the function directly derives from our kinematic analysis, we needed to slightly modify our function to allow for solving for specific points. This is done by taking our kinematic analysis output and subtracting it from the desired position. This function can then have its roots solved for where each root corresponds to the desired and actual motor positions converging. The output is then the motor angular data we can send to the motors. More information on this method can be found [here](https://en.wikipedia.org/wiki/Newton%27s_method) 
+
+Once the image was processed, we verified our analysis by plotting motor angular data and final plotted positions. As can be seen below, there are no discontinuities in the outputs and our final plot matches the desired triangular image exactly. A GIF was also constructed to show the plotter’s motion as it plots, with the blue line representing the arm of the system, and the red lines presenting the pen marks.
 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" align="center" width="500">
