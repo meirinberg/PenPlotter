@@ -151,7 +151,7 @@ $\frac{\partial g(\theta))}{\partial \theta} = -\frac{\partial}{\partial \theta}
 
 The Newton Raphson method was used to find the proper motor angular position data to produce desired rectilinear coordinates. This method is typically used to find the roots of a function. Rather than use the function directly derived from our kinematic analysis, we needed to slightly modify our position matrices to allow for solving for specific points. This is done by taking our kinematic analysis output and subtracting it from the desired position. This function can then have its roots solved for where each root corresponds to the desired and actual motor positions converging. The output is then the motor angular data we can send to the motors. More information on this method can be found [here](https://en.wikipedia.org/wiki/Newton%27s_method). 
 
-Once the image was processed, we verified our analysis by plotting motor angular data and final plotted positions. As can be seen below, there are no discontinuities in the outputs and our final plot matches the desired triangular image exactly. A GIF was also constructed to show the plotter’s motion as it plots, with the blue line representing the arm of the system, and the red lines representing the drawn pen lines.
+Once the image was processed, we verified our analysis by plotting motor angular data and final plotted positions. As can be seen below, there are no discontinuities in the outputs and our final plot matches the desired triangular image exactly. A GIF was also constructed to show the plotter’s motion as it plots, with the blue line representing the arm of the system, and the red lines representing the drawn pen lines. the final image shows the triangle that our pen plotter was able to accomplish.
 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Radial Motor Desired Position Plot.png" width="300">
@@ -164,7 +164,7 @@ Once the image was processed, we verified our analysis by plotting motor angular
 </p>
 
 <p align="center">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/TriangleDraw.jpg" align="center" width="320">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/TriangleDraw.jpg" align="center" width="500">
 </p>
 
 ## Component Walkthrough
