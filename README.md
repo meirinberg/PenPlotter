@@ -56,7 +56,7 @@ Looking at the electrical components of our project, we were provided a Nucleo L
 
 ## Code Structure and Implementation
 <p align="center">
-<img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.JPG" align="center" width="500">
+
 </p>
 Our term project combines two operating modes, “Free Draw” and “File Draw”. 
 
