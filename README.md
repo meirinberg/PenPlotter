@@ -38,7 +38,7 @@ This project uses basic polar coordinates to accomplish drawing.The following im
 ## First Iteration Challenges
 3D printing was the obvious first choice for the more customized parts that need to interact with the motor. Our first prints revealed critical information on the flaws in our design. The first iteration prints can be seen below with the angular and radial motors.
 <p align="center">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/FirstIteration.jpg" width="500">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/FirstIteration.jpg" width="300">
 </p>
 Our discovered problem was a matter of resolution. Upon considering the dimensions of our drawing space, we realized that the angular motor would need to have very high resolution. This is because resolution decreases as the pen moves farther out radially with each angular change. The provided motors only have 48 steps per revolution (7.5 degrees/step). This was far too low for our design so we found a NEMA 17 stepper motor with 200 steps (1.8 degrees/step). This was a critical design challenge because it changed most of our design in how the radial motor was properly secured. However, the radial motor was not changed to a NEMA 17 because our lead screw had a pitch of 2mm. Even with 48 steps this small pitch allows for higher resolution radial advancement.
 
