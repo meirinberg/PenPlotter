@@ -62,7 +62,7 @@ We used pinhole soldier boards for our hardware with trimmed leads. This ensured
 ## Software Design and Implementation
 Our code was structured as a finite state machine (FSM) using cooperative multitasking. We use five states, with the main four controlling the user interface, image processing, and sending motor commands in various modes. The FSM can be seen below with each state showing its task period and priority. The scheduler works by running based on priority, finding the highest priority task which is ready to run and calls it. Each state’s implementation will be discussed in further detail below.
 <p align="center">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.jpg" align="center" width="500">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.jpg" align="center" width="750">
 </p>
 
 ### S1 – User Interface
@@ -184,7 +184,7 @@ We had two 4-wire stepper motors with internals shown below. By inducing a curre
 ### LCD
 
 <p align="center">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/LCD.png" align="right" width="250">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/LCD .jpg" align="right" width="250">
 </p>
 
 The LCD board is configured in 4-bit mode. The LCD class was written manually by using delays and bit-banging pins. Initially, we thought the use of delays would slow down our pen plotter other functions. However, we were able to reduce the delay to 0.0005 seconds which proved to be so fast that the delays were negligable. Unfortunately, 4-bit requires more wires than that of an I2C configured LCD. To tackle the large wiring footprint, we soldered our pin connections to a solder-board. This reduction in size allowed the LCD to fit within the 3D-printed housing we designed for it.
@@ -193,7 +193,7 @@ The LCD board is configured in 4-bit mode. The LCD class was written manually by
 ### Joystick
 
 <p align="center">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Joy_Stick.png" align="right" width="250">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Joy_Stick .png" align="right" width="250">
 </p>
 
 The joystick employs two ADCs to read the X and Y axes from the joystick potentiometer. We used the ADC code that we built in our first mechatronics lab. We used 3.3V to operate the joystick even though it is rated for 5V. We found that operation at 3.3V was optimal becuase that voltage matched the internal reference voltage of the microcontroller's ADC. This allowed for smooth movement tracking with the joystick. However, we did remove noisy inaccuracies at the joystick's center position by introducing a threshold. We configured three GPIO pins as inputs, two for the ADCs and one for the joystick's button. We flipped some of the axes via programming because our 3D-printed housing prefered the joystick oriention to have the wires facing the top.
