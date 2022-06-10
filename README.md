@@ -60,21 +60,27 @@ We used pinhole soldier boards for our hardware with trimmed leads. This ensured
 </p>
 
 ## Software Design and Implementation
+Our code was structured as a finite state machine (FSM) using cooperative multitasking. We use five states, with the main four controlling the user interface, image processing, and sending motor commands in various modes. The FSM can be seen below with each state showing its task period and priority. The scheduler works by running based on priority, finding the highest priority task which is ready to run and calls it. Each state’s implementation will be discussed in further detail below.
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.jpg" align="center" width="500">
 </p>
-Our term project combines two operating modes, “Free Draw” and “File Draw”. 
 
-The File Draw mode operates the pen plotter to draw a vector image loaded onto our microcontroller (as the term project requires). 
-
-The Free Draw mode allows for manual drawing using a joystick. The user can control the pen-plotter directly, drawing anything they desire. Clicking the joystick down will make the pen touch the paper for drawing. Clicking the joystick again will lift the pen. The movement of the joystick will control the movement of the pen-plotter. We plan to switch between the two modes using a programmatic method, or by using a real hardware switch.
-
-### User Interface
+### S1 – User Interface
 We designed our program to include a LCD-based user interface. This took some thoughtful programming. The user can scroll through the list of options using the joystick axes and click the joystick to make a selection. Using the custom LCD class we wrote, we sent one menu item to each line of the screen. We added a ">" character to prefix one menu option as a way for the user to highlight which item they wished to select.  The program uses indexing to know which choice they have highlighted and selected. To implement the scroll look, the program chooses which items to present in the list, one for each line. If the user has reached the top or bottom of the list, the scrolling ability stops.
 
 The first menu item is always "Free Draw" which will put the program into that mode when selected. The next menu items are loaded from a basic file explorer function we programmed. The file explorer opens the current directory and finds the files with a .hpgl extension. It then lists those HP-GL files as the next menu items. Clicking an HP-GL file will cause the program to run "File Draw" mode using that filename.
 
-The blue button on the STM32 microcontroller acts as our in-print cancellation button. By clicking this button during an active print, the pen plotter will home back to its starting position and return to the main menu user interface.
+The blue button on the STM32 microcontroller acts as our in-print cancellation button. By clicking this button during an active print, the pen plotter will home back to its starting position and return to the main menu user interface. When pressed during the free draw mode, it will only cancel the mode, but not home back to any position.
+
+### S2 – Image Processing
+This state receives the file name selected in the user interface to read the appropriate HPGL data from a file stored on the board. The image processing state can take a long time depending on the complexity of the image. Therefore, it was given the largest period in our task manager. This state calculates all required motor position data in one go and stores it as a global variable to be accessed from the File Draw state. 
+
+### S3 – File Draw
+Once image processing is complete, this state will index through each motor angle data and send the commands to the power boards drivers to run the stepper motors. Once the command is sent, our code reads the current position of the motors and will only continue indexing once they have reached their desired positions. The stepper motors are initialized in ramp mode for this state since we need to send position data.
+
+### S4 – Free Draw
+The Free Draw mode allows for manual drawing using a joystick. The user can control the pen-plotter directly, drawing anything they desire. X-direction joystick motion controls the theta motor while the Y-direction joystick motion controls the radial motor. Clicking the joystick will actuate the solenoid to force the pen up or down onto the paper. The stepper motors are initialized in velocity mode for this state and virtual threshold for the joystick was hardcoded. This means that when the joystick passes a certain point, the motors will move at constant velocity. The threshold also helps with noise, as a resting joystick can sporadically send signals.
+
 ## Kinematics
 
 We used the following to determine the calculations for our system (shown below). This analysis should align with any polar-based system. 
