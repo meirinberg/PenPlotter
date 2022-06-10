@@ -149,7 +149,7 @@ Our board is the surface our program draws on. It is made out of wood.
 We used the STM32 as our microcontroller. The Microcontroller has < x ram > and < x storage >. We are able to fully control our system with our microcontroller. We used micropython as our language of choice for this project. 
 
 
-The shoe of brian is neccessary as an adaptor to utalize micropython for our project. This is due to limittation present on our stm32 hardware. 
+The shoe of brian is neccessary as an adaptor to utilize micropython for our project. This is due to limittation present on our stm32 hardware. 
 
 
 Used for tmc2208s and tmc4210s, which control our stepper motors in this project. Contains all of our power connections except for the solonoid due to hardware limitations. 
@@ -158,7 +158,7 @@ Used for tmc2208s and tmc4210s, which control our stepper motors in this project
 Used to show the user real time location info of where our pen is.
 
 
-Used for user controlled movement. Utalizes velocity mode as in practice it is easier to draw by hand with.
+Used for user controlled movement. Utilizes velocity mode as in practice it is easier to draw by hand with.
 
 ### Microcontroller
 ### Stepper Motors
