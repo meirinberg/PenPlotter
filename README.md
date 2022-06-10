@@ -164,7 +164,15 @@ Used to show the user real time location info of where our pen is.
 Used for user controlled movement. Utilizes velocity mode as in practice it is easier to draw by hand with.
 
 ### Microcontroller
+
 ### Stepper Motors
+
+We had two 4-wire stepper motors with internals shown below. By inducing a current we were able to rotate our arm motor 48 individual steps for our radial stepper motor and 200 steps for our theta stepper motor. This allowed us to make fairly precise drawings, but did come with some troubles. We went through three 48 stepper motors while our 200 stepper did not die at all. Our motor tended to preduces results that varied despite the code being the same at times. This turned out to be a motor issue, repeatably, and not a code issue. We would recommend picking up reliably steppers in order to save yourself a headache for future projects.
+
+<p align="center">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/StepperMotor.JPG" align="center" width="500">
+</p>
+
 ### Solenoid
 ### Power Supply and Relays
 ### LCD
