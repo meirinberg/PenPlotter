@@ -95,7 +95,7 @@ The Free Draw mode allows for manual drawing using a joystick. The user can cont
 
 ## Kinematics
 
-We used the following to determine the calculations for our system (shown below). This analysis should align with any polar-based system. 
+We used the following image to determine the calculations for our system (shown below). The image is viewed from the top looking down onto the drawing board. The {\theta_1} represents the angular change of the arm while {\theta_2} represents the angular change of the radial motor required to move the pen in the radial direction. This analysis should align with any polar-based system. 
 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsWebsiteImage.png" width="400">
