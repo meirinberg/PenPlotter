@@ -32,7 +32,10 @@ In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-Cartesian pen
 ## Proposal
 This project uses basic polar coordinates to accomplish drawing.The following image displays our initial sketch of our project’s hardware. Even though the structure of each component has been substantially refined, the core function can still be demonstrated in the sketch. It consists of a pivot point in the ‘Angular Subsystem’ sketch serving as the origin about which all major drawing components rotate around. The ‘Radial Subsystem’ is an arm that extends overhead across the drawing area and will provide structure for moving the pen. At the end is a T-shaped support structure with a wheel on the bottom. The wheel minimizes the friction required to start rotating the radial subsystem about the angular subsystem. We decided to use a support structure because without it, there would be a moment experienced by the angular motor rotor when the pen holder would be far out along in the radial direction. This could ultimately make it more difficult to move the motors and add drooping to the system. The next subsystem is the pen holder. This holds and activates the pen as well as moves along the radial subsystem using a lead screw. The pen is envisioned to be pressed down by a solenoid upon activation.
 <p align="center">
+  <figure>
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
+    <figcaption>Initial sketch of pen plotter systsem</figcaption>
+  <figure>
 </p>
 
 ## First Iteration Challenges
@@ -89,7 +92,7 @@ The blue button on the STM32 microcontroller acts as our in-print cancellation b
 ### S2 – Image Processing
 This state receives the file name selected in the user interface to read the appropriate HPGL data from a file stored on the board. The image processing state can take a long time depending on the complexity of the image. Therefore, it was given the largest period in our task manager. This state calculates all required motor position data in one go and stores it as a global variable to be accessed from the File Draw state. 
 
-All image processing code was derived using the [Newton Raphson](#newton-raphson) method based on [Kinematic](#Kinematics) analysis. These sections are discussed later. 
+All image processing code was derived using the [Newton Raphson](#newton-raphson) method based on [Kinematic](#Kinematics) analysis. These sections are discussed later. A key part of image processing was using linear interpolation. Due to the requirements of the system, the motors will spin at different rates. This means that over long distances, the motors can reach their target location at different times. This warps the image and interpolation between the data points can be used to offset the effect. We first looked at the distance between points and saw if they past certain thresholds. Various thresholds require different degrees of interpolation with larger distances requiring more data points. This accomplished using the linspace() function inherent to Python. Once interpolated and with the values added back to the original set, the data could then be sent to the File Draw state.
 
 ### S3 – File Draw
 Once image processing is complete, this state will index through each motor angle data and send the commands to the power boards drivers to run the stepper motors. Once the command is sent, our code reads the current position of the motors and will only continue indexing once they have reached their desired positions. The stepper motors are initialized in ramp mode for this state since we need to send position data.
