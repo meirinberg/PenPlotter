@@ -163,6 +163,10 @@ Once the image was processed, we verified our analysis by plotting motor angular
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" align="center" width="320">
 </p>
 
+<p align="center">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/TriangleDraw.jpg" align="center" width="320">
+</p>
+
 ## Component Walkthrough
 
 ### Microcontroller
