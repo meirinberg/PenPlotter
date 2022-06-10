@@ -189,15 +189,15 @@ Used for user controlled movement. Utilizes velocity mode as in practice it is e
 
 We had two 4-wire stepper motors with internals shown below. By inducing a current we were able to rotate our arm motor 48 individual steps for our radial stepper motor and 200 steps for our theta stepper motor. This allowed us to make fairly precise drawings, but did come with some troubles. We went through three 48 stepper motors while our 200 stepper did not die at all. Our motor tended to preduces results that varied despite the code being the same at times. This turned out to be a motor issue, repeatably, and not a code issue. We would recommend picking up reliably steppers in order to save yourself a headache for future projects.
 
-### Solenoid
+### Solenoid and Relay
 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Solenoid.JPG" align="right" width="150">
 </p>
 
-We utalized a non-polar solenoid to control our pen up and pen down motion. We mounted the [solenoid to a rail](https://github.com/meirinberg/PenPlotter/blob/main/README.md#mechanical-design), so we were able to do pen up and pen down motions in any position in our radial and theta axis.
+We utalized a non-polar solenoid to control our pen up and pen down motion. We mounted the [solenoid to a rail](https://github.com/meirinberg/PenPlotter/blob/main/README.md#mechanical-design), so we were able to do pen up and pen down motions in any position in our radial and theta axis. We connected our Solenoid to a relay, which was a little overkill for the project but worked flawlessly. We used this relay because it happened to be laying around and was more easily mounted as we did not have another pin board on hand. Without a relay one could use another switch mechanism such as a mosfet or bjt to control when the solenoid turns on (pen down) or off (pen up).
 
-### Power Supply and Relays
+### Power Supply 
 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Power_Board.png" align="right" width="250">
