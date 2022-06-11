@@ -43,7 +43,7 @@ Figure 1. Initial sketch of pen plotter system
 
 
 ## First Iteration Challenges
-We decided to use a 3D printer to develop the customized parts that interact with the motor. Our first prints revealed critical flaws in our design. The first iteration prints can be seen below.
+We decided to use a 3D printer to create the parts that interact with the motors. Our first prints revealed critical flaws in our design. The first iteration prints can be seen below.
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/FirstIteration.jpg" width="300">
 </p>
@@ -54,7 +54,7 @@ We discovered that the pen plotter's resolution would face significant issues. U
 
 ## Construction and Final Design
 ### Mechanical Design
-A CAD model of our final design can be seen below. All part files and assemblies can be found in the 'parts' folder. See the images below for more details.
+A CAD model of our final design can be seen below. All part files and assemblies can be found in the 'parts' folder. See the images below for more details. Our construction consisted of 3D printing virtually all parts or reusing parts from past projects. A lead screw set, solenoid, and joysick were the only purchased parts.
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/CAD_Model.png" width="500" />
 </p>
