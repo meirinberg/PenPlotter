@@ -168,10 +168,12 @@ Once the image was processed, we verified our analysis by plotting motor angular
 </p>
 
 ## Results and Final Thoughts
-
+Our project was successful in creating a functional pen plotter. The triangle, as discussed in the Newton Raphson section above, can be seen below. Clearly, the lines are not as smooth as we had hoped but would improve with more interpolated data points. However, the provided Nucleo does not have a large amount of storage available, so it can be difficult to find the right balance of image quality. 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/TriangleDraw.jpg" align="center" width="500">
 </p>
+Unfortunately for the free drawing state, there is some delay between an input from the joystick and motion of the motor. This can be mostly attributed to the added weight of all mechanical components. It can be difficult to angularly accelerate a mass with a high moment of inertia, leading to a delayed start and stop reaction time. A future design could involve optimizing the weight of the radial arm and eliminating the shaft support. Finally, the biggest issue we kept encountering was the reliability of the provided motors. We found that after some time, the motors would lock up and refuse to rotate, only to start rotating when trying moments later. This made it difficult in the beginning to know if there was a software or hardware issue, so we recommend that anyone starting a project like this ensure their motors can handle the required load.
+
 
 ## Component Walkthrough
 
