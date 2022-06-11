@@ -2,7 +2,7 @@
 <p align="center">
 Mechanical Engineering 405 - Mechatronics <br> 
 Term Project <br> 
-Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
+Created by Mike Eirinberg, Ben Bradley, and Ryan Dean
 </p>
 <br>
 <p align="center">
@@ -10,27 +10,27 @@ Created by Mike Eirinberg, Ben Bradley, and Ryan Dean.
 </p>
 
 ## Demonstration
-A demonstration of our pen plotter can be found using the following links. The first link demonstrates all features of our pen plotter and attempts to draw a triangle. As discussed in the video, the class provided motors are old and lock up occasionally and sometimes the drawing can't be finished. However, the second video shows a complete demonstration of the plotter drawing a triangle.
+A demonstration of our pen plotter can be found using the following links. The first link demonstrates all features of our pen plotter and its attempt to draw a triangle. As discussed in the video, the motors provided by our mechatronics course were old and occasionally lock up. As a result, sometimes the drawing can't be finished. However, the second video shows a successful demonstration of the plotter drawing a triangle.
 
-Pen Plotter Demonstration and Triangle Drawing Attempt: <br>
+Pen Plotter Demonstration and Triangle-Drawing Attempt: <br>
 https://youtu.be/bnkg2Q-DLaM
 
-Complete Triangle Drawing Attempt:<br>
+Succesful Triangle-Drawing Attempt:<br>
 https://youtu.be/nqa20NQLPtA
 
 
 ## Project Background
 
-In ME 405 we were tasked with creating a 2.5 degree-of-freedom non-Cartesian pen plotter with the following rules:
+In mechatronics, we were tasked with creating a 2.5 degree-of-freedom non-Cartesian pen plotter with the following rules. The pen plotter: 
 
-1. The project must be able to draw something
-2. The device must move in two different degrees of freedom (non-Cartesian)
+1. Must be able to draw something
+2. Must move in two different degrees of freedom (non-Cartesian)
 3. Must use stepper motors for 2 axes
 4. Must run off of 24V benchtop power supplies drawing no more than 6A
 5. Must be safe (generally no lasers, fire, or hazarderous systems)
 
 ## Proposal
-This project uses basic polar coordinates to accomplish drawing.The following image displays our initial sketch of our project’s hardware. Even though the structure of each component has been substantially refined, the core function can still be demonstrated in the sketch. It consists of a pivot point in the ‘Angular Subsystem’ sketch serving as the origin about which all major drawing components rotate around. The ‘Radial Subsystem’ is an arm that extends overhead across the drawing area and will provide structure for moving the pen. At the end is a T-shaped support structure with a wheel on the bottom. The wheel minimizes the friction required to start rotating the radial subsystem about the angular subsystem. We decided to use a support structure because without it, there would be a moment experienced by the angular motor rotor when the pen holder would be far out along in the radial direction. This could ultimately make it more difficult to move the motors and add drooping to the system. The next subsystem is the pen holder. This holds and activates the pen as well as moves along the radial subsystem using a lead screw. The pen is envisioned to be pressed down by a solenoid upon activation.
+This project uses basic polar coordinates to accomplish drawing. The following image displays our initial sketch of our project’s hardware. Even though the structure of each component has been substantially refined, the core function can still be demonstrated in the sketch. It consists of a pivot point in the ‘Angular Subsystem’ sketch serving as the origin about which all major drawing components rotate. The ‘Radial Subsystem’ is an arm that extends overhead across the drawing area and provides structure for moving the pen. At the end, there is a T-shaped support structure with a wheel on the bottom. The wheel minimizes the friction required to start rotating the radial subsystem about the angular subsystem. We decided to use a support structure, because without it there would be a moment experienced by the angular motor rotor when the pen holder would be greatly extended in the radial direction. This could ultimately make it more difficult to move the motors and add drooping to the system. The next subsystem is the pen holder. This holds and activates the pen as it, using a lead screw, moves along the radial subsystem. The pen is envisioned to be pressed down by a solenoid upon activation.
 
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
