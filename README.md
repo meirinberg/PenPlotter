@@ -240,6 +240,9 @@ Figure 12. 4-wire Stepper Motor
 </p>
 
 We utilized a non-polar solenoid to control our pen-up and pen-down motions. We mounted the [solenoid to a rail](https://github.com/meirinberg/PenPlotter/blob/main/README.md#mechanical-design), so we were able to do pen-up and pen-down motions in any position in our radial and theta axes. We connected our solenoid to a relay, which worked flawlessly.
+
+
+
 <p align="right">
 Figure 13. Solenoid
 </p>
