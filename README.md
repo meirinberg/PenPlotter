@@ -36,18 +36,19 @@ This project uses basic polar coordinates to accomplish drawing. The following i
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
 </p>
-<figure>
-<center>
-<img src='images/album1.jpg' alt='missing' />
-<figcaption>Album name goes here
-<br>Year goes here
-<br>artist name goes here</figcaption>
+<p align="center">
+Figure 1. Initial sketch of pen plotter system
+</p>
+
 
 
 ## First Iteration Challenges
 We decided to use a 3D printer to develop the customized parts that interact with the motor. Our first prints revealed critical flaws in our design. The first iteration prints can be seen below.
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/FirstIteration.jpg" width="300">
+</p>
+<p align="center">
+Figure 2. First iteration 3D prints with radial and angular motor
 </p>
 We discovered that the pen plotter's resolution would face significant issues. Upon considering the dimensions of our drawing space, we realized that the angular motor would need to have very high accuracy. This is because resolution decreases as the pen moves farther out radially with each angular change. The provided motors only have 48 steps per revolution (7.5 degrees/step). This was far too low for our design, so we found a NEMA 17 stepper motor with 200 steps (1.8 degrees/step). This was a critical design challenge, because it caused us to change most radial motor design. The radial motor had to be properly secured. However, we did not change the radial motor to a NEMA 17 because our lead screw had a pitch of 2mm. Because of this, even with 48 steps, this small pitch allowed for higher resolution radial advancement. The pitch forced the radial motor to spin a lot to move linearly along the lead screw.
 
@@ -56,6 +57,9 @@ We discovered that the pen plotter's resolution would face significant issues. U
 A CAD model of our final design can be seen below. All part files and assemblies can be found in the 'parts' folder. See the images below for more details.
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/CAD_Model.png" width="500" />
+</p>
+<p align="center">
+Figure 3. CAD mode of final design
 </p>
 
 Our final design closely follows the core concept of our initial sketch and accounts for the different geometry of using a NEMA 17 motor in our angular subsystem. This angular system is mounted in the center of a semicircle drawing canvas, and angularly rotates the radial system at its base to sweep angularly across the drawing area. We do not make use of the entire semicircle, since part of it will be used as space for the electronics. 
@@ -71,6 +75,9 @@ Because of the shaft-support structure, we don’t have to worry about the large
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Mechanical Overview.png" width="500" />
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Pen Actuator.png" width="250" /> 
 </p>
+<p align="center">
+Figure 4. Labeled components of mechanical design
+</p>
 
 ### Electrical Design
 Looking at the electrical components of our project, we were provided a Nucleo L476RG and a custom-made power board with a TMC4210 and TMC2208 motor driver per stepper motor. The TMC4210 interprets position, velocity, and acceleration commands, then sends step and direction signals to the TMC2208. The TMC2208 then takes this information and sends the appropriate current to the stepper motors. For each TMC2208, the voltage reference (Vref) needs to be set to create an internal current limit for the electrical components and stepper motors. We adjusted this by twisting a screw on the TMC2208 until we measured 0.7V. Datasheets for these components can be found in the folder above.
@@ -79,6 +86,9 @@ A 24V power supply is hooked up to the power board to supply power to the motors
 <p align="center" float="left">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/06042022 Pictures/Electronics Overview.png" width="250" />
 </p>
+<p align="center">
+Figure 5. Labeled components of electrical design
+</p>
 
 ## Wiring Diagram
 We used pinhole soldier boards for our hardware with trimmed leads. This ensured that we would not have a faulty connection, due to poor breadboard conductivity, while minimizing our resistances through smaller wires. This resulted in a wiring that never faultered. This wiring is modeled below. We communicate with our hardware using [Thonny](https://thonny.org/) connected to a laptop through a usb to micro usb connection. This powered our microcontroller, the STM32, which was the brains of our project. The STM32 had an attached "Shoe of Brian" to allow us to use micropython for this project. We utilized micropython to poll our joystick and send data to our LCD. The STM32 also controlled the pen through a solenoid that was attached to a relay. The power board contained two TMC4210s and two TMC2208s.  
@@ -86,11 +96,17 @@ We used pinhole soldier boards for our hardware with trimmed leads. This ensured
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Microcontroller.JPG" align="center" width="750">
 </p>
+<p align="center">
+Figure 6. Detailed wiring diagram
+</p>
 
 ## Software Design and Implementation
 Our code was structured as a finite state machine (FSM) using cooperative multitasking. We use five states, with the main four controlling the user interface, image processing, and sending motor commands in various modes. The FSM can be seen below with each state showing its task period and priority. The scheduler works by running based on frequency and priority, running the highest priority task at each call. Each state’s implementation will be discussed in further detail below.
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/State_Diagram.jpg" align="center" width="750">
+</p>
+<p align="center">
+Figure 7. State transition diagram
 </p>
 
 ### S1 – User Interface
@@ -117,6 +133,9 @@ We used the following image to determine the calculations for our system. The im
 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/kinematicsWebsiteImage.png" width="400">
+</p>
+<p align="center">
+Figure 8. Diagram of primary variables used in kinematic analysis
 </p>
 
 The design of our robot follows the standard polar coordinate system. The two parameters are a radius, $r$, and an angle, $\theta$. Our robot was centered at the bottom of the semicircle drawing canvas.
@@ -173,16 +192,25 @@ Once the image was processed, we verified our analysis by plotting motor angular
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Radial Motor Desired Position Plot.png" width="300">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Theta Motor Desired Position Plot.png" width="300">
 </p>
+<p align="center">
+Figure 9. Plots of radial (left) and angular (right) motor output position
+</p>
   
 <p align="center" float="left">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Triangle Desired Position Plot.png" width="300">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" width="320">
+</p>
+<p align="center">
+Figure 10. Desired pen plotter plots
 </p>
 
 ## Results and Final Thoughts
 Our project was successful in creating a functional pen plotter. The triangle, as discussed in the Newton Raphson section above, can be seen below. Clearly, the lines are not as smooth as we had hoped but would improve with more interpolated data points. However, the provided Nucleo does not have a large amount of storage available, so it can be difficult to find the right balance of image quality. 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/TriangleDraw.jpg" align="center" width="500">
+</p>
+<p align="center">
+Figure 11. Pen plotter output from triangle input image
 </p>
 Unfortunately for the free drawing state, there is some delay between an input from the joystick and motion of the motor. This can be mostly attributed to the added weight of all mechanical components. It can be difficult to angularly accelerate a mass with a high moment of inertia, leading to a delayed start and stop reaction time. A future design could involve optimizing the weight of the radial arm and eliminating the shaft support. Finally, the biggest issue we kept encountering was the reliability of the provided motors. We found that after some time, the motors would lock up and refuse to rotate, only to start rotating when trying moments later. This made it difficult in the beginning to know if there was a software or hardware issue, so we recommend that anyone starting a project like this ensure their motors can handle the required load.
 
@@ -197,6 +225,9 @@ We used the STM32L476RG as our microcontroller. The microcontroller has 128KB ra
 
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/StepperMotor.JPG" align="right" width="250">
+</p>
+<p align="right">
+Figure 12. Stepper motor wiring configuration
 </p>
 
 We used two 4-wire stepper motors with internals (shown below). By inducing a current, we were able to rotate our arm motor 48 individual steps for our radial stepper motor and 200 steps for our theta stepper motor. This allowed us to make fairly precise drawings, but did come with some troubles. We destroyed three 48-step motors, while our 200-step NEMA 17 motor survived. The 48-step motor tended to produce results that varied despite the code being the same at times. This repeatedly turned out to be a motor issue and not a code issue. We would recommend purchasing reliable stepper motors to save time and expense in future projects.
