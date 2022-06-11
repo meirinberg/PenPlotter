@@ -237,6 +237,9 @@ We used two 4-wire stepper motors with internals (shown below). By inducing a cu
 </p>
 
 We utilized a non-polar solenoid to control our pen-up and pen-down motions. We mounted the [solenoid to a rail](https://github.com/meirinberg/PenPlotter/blob/main/README.md#mechanical-design), so we were able to do pen-up and pen-down motions in any position in our radial and theta axes. We connected our solenoid to a relay, which worked flawlessly.
+<br>
+<br>
+
 
 ### Power Supply 
 
@@ -246,6 +249,8 @@ We utilized a non-polar solenoid to control our pen-up and pen-down motions. We 
 
 We used a power board to control our stepper motors from one SPI configuration. We were able to do this by manually enabling which stepper was active, toggling the corresponding chip select. Additionally, our power board has an input of a 24V rail and supplies 12V to each motor. This aided in our wiring. The power board has two TMC4210 chips and two TMC2208 chips. TMC4210s were used for enabling and calculating TMC2208 commands. The TMC2208 chips are used to send the calculated commands directly to each motor. For more information on setting the TMC2208s current limit, [look here](https://wiki.fysetc.com/TMC2208/).
 
+<br>
+<br>
 
 ### LCD
 
