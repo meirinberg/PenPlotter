@@ -164,7 +164,7 @@ Once the image was processed, we verified our analysis by plotting motor angular
   
 <p align="center" float="left">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle Plotting/Triangle Desired Position Plot.png" width="300">
-  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" align="center" width="320">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/Triangle.gif" width="320">
 </p>
 
 ## Results and Final Thoughts
