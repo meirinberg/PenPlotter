@@ -228,9 +228,6 @@ We used the STM32L476RG as our microcontroller. The microcontroller has 128KB ra
 </p>
 
 We used two 4-wire stepper motors with internals (shown below). By inducing a current, we were able to rotate our arm motor 48 individual steps for our radial stepper motor and 200 steps for our theta stepper motor. This allowed us to make fairly precise drawings, but did come with some troubles. We destroyed three 48-step motors, while our 200-step NEMA 17 motor survived. The 48-step motor tended to produce results that varied despite the code being the same at times. This repeatedly turned out to be a motor issue and not a code issue. We would recommend purchasing reliable stepper motors to save time and expense in future projects.
-<p align="right">
-Figure 12. 4-wire Stepper Motor
-</p>
 
 
 ### Solenoid and Relay
@@ -241,12 +238,6 @@ Figure 12. 4-wire Stepper Motor
 
 We utilized a non-polar solenoid to control our pen-up and pen-down motions. We mounted the [solenoid to a rail](https://github.com/meirinberg/PenPlotter/blob/main/README.md#mechanical-design), so we were able to do pen-up and pen-down motions in any position in our radial and theta axes. We connected our solenoid to a relay, which worked flawlessly.
 
-
-
-<p align="right">
-Figure 13. Solenoid
-</p>
-
 ### Power Supply 
 
 <p align="center">
@@ -254,9 +245,7 @@ Figure 13. Solenoid
 </p>
 
 We used a power board to control our stepper motors from one SPI configuration. We were able to do this by manually enabling which stepper was active, toggling the corresponding chip select. Additionally, our power board has an input of a 24V rail and supplies 12V to each motor. This aided in our wiring. The power board has two TMC4210 chips and two TMC2208 chips. TMC4210s were used for enabling and calculating TMC2208 commands. The TMC2208 chips are used to send the calculated commands directly to each motor. For more information on setting the TMC2208s current limit, [look here](https://wiki.fysetc.com/TMC2208/).
-<p align="right">
-Figure 14. Power board
-</p>
+
 
 ### LCD
 
@@ -265,9 +254,6 @@ Figure 14. Power board
 </p>
 
 The LCD board is configured in 4-bit mode. The LCD class was written manually, by using delays and bit-banging pins. Initially, we thought the use of delays would slow down our pen plotter's other functions. However, we were able to reduce the delay to 0.0005 seconds, which made the delay negligable. Unfortunately, 4-bit mode requires more wiring connections than an LCD with an I2C bus module. To reduce the large wiring footprint without an I2C configuration, we soldered our pin connections to a solder-board. This reduction in size allowed the LCD to fit within the 3D-printed housing we designed for it. We attached a potentiometer to the LCD's Vo pin to enable the user to manually adjust the contrast of the LCD.
-<p align="right">
-Figure 15. LCD
-</p>
 
 ### Joystick
 
@@ -276,6 +262,3 @@ Figure 15. LCD
 </p>
 
 The joystick employs two ADCs to read the X and Y axes from the joystick potentiometer. We used the ADC code that we built in our first mechatronics lab. We used 3.3V to operate the joystick, even though it is rated for 5V. We found that operation at 3.3V was optimal because that voltage matched the internal reference voltage of the microcontroller's ADC. This allows for smooth movement tracking with the joystick. However, we did remove noisy inaccuracies at the joystick's center position by introducing a threshold. We configured three GPIO pins as inputs, two for the ADCs, and one for the joystick's button. We flipped some of the axes through programming, because our 3D-printed housing better accommodated the joystick upside down.
-<p align="right">
-Figure 15. Joystick
-</p>
