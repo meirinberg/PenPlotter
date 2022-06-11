@@ -1,7 +1,13 @@
 """!
-@file demoDay_Final.py
+@file main.py
 @author Ryan Dean, Mike Eirenberg, Ben Bradley
 @date 6/9/2022
+
+This is the main file to run the pen plotter, containing all tasks
+used for cooperative multitasking. In this you will find four tasks;
+File Draw, and Free_Draw,  Calc_HPGL, UI. Refer to the Readme.md for
+more information on each task. 
+
 """
 
 import gc
