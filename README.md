@@ -46,7 +46,7 @@ We discovered that the pen plotter's resolution would face significant issues. U
 
 ## Construction and Final Design
 ### Mechanical Design
-A CAD model of our final design can be seen below. All part files and assemblies can be found in the 'parts' folder.
+A CAD model of our final design can be seen below. All part files and assemblies can be found in the 'parts' folder. See the images below for more details.
 <p align="center">
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/CAD_Model.png" width="500" />
 </p>
