@@ -59,7 +59,7 @@ A CAD model of our final design can be seen below. All part files and assemblies
   <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/CAD_Model.png" width="500" />
 </p>
 <p align="center">
-Figure 3. CAD mode of final design
+Figure 3. CAD model of final design
 </p>
 
 Our final design closely follows the core concept of our initial sketch and accounts for the different geometry of using a NEMA 17 motor in our angular subsystem. This angular system is mounted in the center of a semicircle drawing canvas, and angularly rotates the radial system at its base to sweep angularly across the drawing area. We do not make use of the entire semicircle, since part of it will be used as space for the electronics. 
