@@ -46,10 +46,15 @@ We discovered that the pen plotter's resolution would face significant issues. U
 
 ## Construction and Final Design
 ### Mechanical Design
+A CAD model of our final design can be seen below. All part files and assemblies can be found in the 'parts' folder.
+<p align="center">
+  <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/CAD_Model.png" width="500" />
+</p>
+
 Our final design closely follows the core concept of our initial sketch and accounts for the different geometry of using a NEMA 17 motor in our angular subsystem. This angular system is mounted in the center of a semicircle drawing canvas, and angularly rotates the radial system at its base to sweep angularly across the drawing area. We do not make use of the entire semicircle, since part of it will be used as space for the electronics. 
 <br>
 
-Our final design still consists of a solenoid to actuate the pen. It is critical for the design of this system to minimize friction, which may prevent the pen from actuating. This is because a solenoid has a starting force when it first begins to move and a holding force when it is fully extended. The starting force is the smallest since the solenoid is just beginning to actuate and can't experience the full effect of the induced magnetic field. Providing adequate clearance and guide structures allow for the pen to be rigidly actuated under the starting force. Our angular (theta) motor’s mount has a wide base to provide as much support as possible. Thrust bearings are used between the theta and radial motor assembly to further minimize angular friction during drawing. 
+Our final design still consists of a solenoid to actuate the pen as well as a set screw for finding optimal pen height. It is critical for the design of this system to minimize friction, which may prevent the pen from actuating. This is because a solenoid has a starting force when it first begins to move and a holding force when it is fully extended. The starting force is the smallest since the solenoid is just beginning to actuate and can't experience the full effect of the induced magnetic field. Providing adequate clearance and guide structures allow for the pen to be rigidly actuated under the starting force. Our angular (theta) motor’s mount has a wide base to provide as much support as possible. Thrust bearings are used between the theta and radial motor assembly to further minimize angular friction during drawing. 
 <br>
 
 Because of the shaft-support structure, we don’t have to worry about the large moment created on the theta motor when the pen is far out along the lead screw, but this also increases the moment of inertia, making it harder for the theta motor to start rotating. A big design consideration was to make the system as adjustable as possible. There are many set screws around the assembly to make it easier to adjust lengths, heights, and replace components. The rest of the system is labeled below. 
