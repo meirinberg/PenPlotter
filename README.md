@@ -32,9 +32,11 @@ In mechatronics, we were tasked with creating a 2.5 degree-of-freedom non-Cartes
 ## Proposal
 This project uses basic polar coordinates to accomplish drawing. The following image displays our initial sketch of our project’s hardware. Even though the structure of each component has been substantially refined, the core function can still be demonstrated in the sketch. It consists of a pivot point in the ‘Angular Subsystem’ sketch serving as the origin about which all major drawing components rotate. The ‘Radial Subsystem’ is an arm that extends overhead across the drawing area and provides structure for moving the pen. At the end, there is a T-shaped support structure with a wheel on the bottom. The wheel minimizes the friction required to start rotating the radial subsystem about the angular subsystem. We decided to use a support structure, because without it there would be a moment experienced by the angular motor rotor when the pen holder would be greatly extended in the radial direction. This could ultimately make it more difficult to move the motors and add drooping to the system. The next subsystem is the pen holder. This holds and activates the pen as it, using a lead screw, moves along the radial subsystem. The pen is pressed down by a solenoid upon activation.
 
+
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
 </p>
+<center>Center this</center>
 
 
 ## First Iteration Challenges
