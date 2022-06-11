@@ -36,7 +36,12 @@ This project uses basic polar coordinates to accomplish drawing. The following i
 <p align="center">
 <img src="https://github.com/meirinberg/PenPlotter/blob/main/images/OriginalPenPlotterSketch.png" width="500">
 </p>
-<center>Center this</center>
+<figure>
+<center>
+<img src='images/album1.jpg' alt='missing' />
+<figcaption>Album name goes here
+<br>Year goes here
+<br>artist name goes here</figcaption>
 
 
 ## First Iteration Challenges
